@@ -19,17 +19,17 @@
 <!-- JSON-LD Structured Data (Schema.org) for better search indexing of the business -->
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "PY Songs International / Song Saviors Ltd.",
-  "url": "https://www.paulyalen.net",
-  "logo": "https://raw.githubusercontent.com/benhasglasses/yalen/refs/heads/main/images/logo-placeholder.png",
-  "description": "Professional songwriting, screenwriting, and music correction services.",
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "email": "PYSongsLtd@gmail.com",
-    "contactType": "Customer Service"
-  }
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "PY Songs International / Song Saviors Ltd.",
+  "url": "https://www.paulyalen.net",
+  "logo": "https://raw.githubusercontent.com/benhasglasses/yalen/refs/heads/main/images/logo-placeholder.png",
+  "description": "Professional songwriting, screenwriting, and music correction services.",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "PYSongsLtd@gmail.com",
+    "contactType": "Customer Service"
+  }
 }
 </script>
 <!-- SEO IMPROVEMENTS END -->
@@ -45,13 +45,13 @@
 
 body{font-family:'Inter',sans-serif;background-color:#ffffff;color:#1f2937;scroll-behavior:smooth}
 /* Ensure the sticky header has a solid background */
-.section-header{position:sticky;top:0;z-index:50; background-color: #111827;} 
+.section-header{position:sticky;top:0;z-index:50; background-color: #111827;} 
 .nav-link:hover{color:#4b5563;text-decoration:none} /* Gray 600 for hover */
 .tush-bg{background-color:#ffffff;color:#1f2937}
 
 /* Added padding to adjust scroll position for fixed header */
 .scroll-margin-top {
-    scroll-margin-top: 100px; /* Adjust this value based on the header height */
+    scroll-margin-top: 100px; /* Adjust this value based on the header height */
 }
 
 /* Video Thumbnail Styling */
@@ -68,7 +68,7 @@ body{font-family:'Inter',sans-serif;background-color:#ffffff;color:#1f2937;scrol
 .modal.active{visibility:visible;opacity:1}
 .modal-content{position:relative;max-width:90%;max-height:90%}
 /* Fluid video aspect ratio: 16:9 (100 / (16/9) = 56.25% - using 45vw for slightly less height on desktop) */
-.modal-video-container{position:relative;width:80vw;max-width:1200px;padding-bottom:45vw;height:0} 
+.modal-video-container{position:relative;width:80vw;max-width:1200px;padding-bottom:45vw;height:0} 
 .modal-video-container iframe{position:absolute;top:0;left:0;width:100%;height:100%}
 .modal-close-button{position:absolute;top:1rem;right:1rem;width:40px;height:40px;background-color:#1f2937;color:white;border-radius:50%;display:flex;justify-content:center;align-items:center;font-size:1.5rem;cursor:pointer;border:2px solid white;transition:background-color 0.2s ease;z-index:1100} /* Accent-Black */
 .modal-close-button:hover{background-color:#4b5563} /* Gray 600 for hover */
@@ -81,110 +81,110 @@ body{font-family:'Inter',sans-serif;background-color:#ffffff;color:#1f2937;scrol
 <script>
 // --- Video Data Definitions ---
 const featuredVideoData = [
-    {title:"Allies",embedUrl:"https://www.youtube.com/embed/36gtyc_Mq6g",videoId:"36gtyc_Mq6g"},
-    {title:"Secret Pain | Music Video",embedUrl:"https://www.youtube.com/embed/i8Ihmrn58IE",videoId:"i8Ihmrn58IE"},
-    {title:"Weekly Movie Review | Secret Pain",embedUrl:"https://www.youtube.com/embed/aUu4pIqz4EY",videoId:"aUu4pIqz4EY"},
-    {title:"Man of Glass",embedUrl:"https://www.youtube.com/embed/i1TVhcETwjo",videoId:"i1TVhcETwjo"},
-    {title:"Angel with a Candle",embedUrl:"https://www.youtube.com/embed/whZTlSOmhlo",videoId:"whZTlSOmhlo"},
-    {title:"Backward Glance",embedUrl:"https://www.youtube.com/embed/xu96IKxlnLI",videoId:"xu96IKxlnLI"},
-    {title:"Stenger",embedUrl:"https://www.youtube.com/embed/ZFktQwJlL50",videoId:"ZFktQwJlL50"}
+    {title:"Allies",embedUrl:"https://www.youtube.com/embed/36gtyc_Mq6g",videoId:"36gtyc_Mq6g"},
+    {title:"Secret Pain | Music Video",embedUrl:"https://www.youtube.com/embed/i8Ihmrn58IE",videoId:"i8Ihmrn58IE"},
+    {title:"Weekly Movie Review | Secret Pain",embedUrl:"https://www.youtube.com/embed/aUu4pIqz4EY",videoId:"aUu4pIqz4EY"},
+    {title:"Man of Glass",embedUrl:"https://www.youtube.com/embed/i1TVhcETwjo",videoId:"i1TVhcETwjo"},
+    {title:"Angel with a Candle",embedUrl:"https://www.youtube.com/embed/whZTlSOmhlo",videoId:"whZTlSOmhlo"},
+    {title:"Backward Glance",embedUrl:"https://www.youtube.com/embed/xu96IKxlnLI",videoId:"xu96IKxlnLI"},
+    {title:"Stenger",embedUrl:"https://www.youtube.com/embed/ZFktQwJlL50",videoId:"ZFktQwJlL50"}
 ];
 const humorVideoData = [
-    {title:"Noise Damage",embedUrl:"https://www.youtube.com/embed/ZO3c5gshfEQ",videoId:"ZO3c5gshfEQ"},
-    {title:"Firefighters Workout",embedUrl:"https://www.youtube.com/embed/vsXkJKXMx7k",videoId:"vsXkJKXMx7k"},
-    {title:"Children's Film Acting School",embedUrl:"https://www.youtube.com/embed/ZtJDutXVWsE",videoId:"ZtJDutXVWsE"},
-    {title:"Volcano Busters",embedUrl:"https://www.youtube.com/embed/u6j8HaIbLbI",videoId:"u6j8HaIbLbI"}
+    {title:"Noise Damage",embedUrl:"https://www.youtube.com/embed/ZO3c5gshfEQ",videoId:"ZO3c5gshfEQ"},
+    {title:"Firefighters Workout",embedUrl:"https://www.youtube.com/embed/vsXkJKXMx7k",videoId:"vsXkJKXMx7k"},
+    {title:"Children's Film Acting School",embedUrl:"https://www.youtube.com/embed/ZtJDutXVWsE",videoId:"ZtJDutXVWsE"},
+    {title:"Volcano Busters",embedUrl:"https://www.youtube.com/embed/u6j8HaIbLbI",videoId:"u6j8HaIbLbI"}
 ];
 const publicServiceVideoData = [
-    {title:"Life on the Farm",embedUrl:"https://www.youtube.com/embed/TtfR-Uv_YjA",videoId:"TtfR-Uv_YjA"},
-    {title:"In My Place",embedUrl:"https://www.youtube.com/embed/cQZ547663-U",videoId:"cQZ547663-U"}
+    {title:"Life on the Farm",embedUrl:"https://www.youtube.com/embed/TtfR-Uv_YjA",videoId:"TtfR-Uv_YjA"},
+    {title:"In My Place",embedUrl:"https://www.youtube.com/embed/cQZ547663-U",videoId:"cQZ547663-U"}
 ];
 
 /**
- * Renders video thumbnails into a specified gallery container.
- * @param {string} containerId - The ID of the container element.
- * @param {string[]} videoIds - Array of video IDs to display.
- * @param {Array<Object>} sourceData - The full data source array.
- */
+ * Renders video thumbnails into a specified gallery container.
+ * @param {string} containerId - The ID of the container element.
+ * @param {string[]} videoIds - Array of video IDs to display.
+ * @param {Array<Object>} sourceData - The full data source array.
+ */
 function renderVideoGallery(containerId, videoIds, sourceData) {
-    const container = document.getElementById(containerId);
-    if (!container) return;
-    
-    // Function to get the YouTube high-quality thumbnail URL
-    const getThumbnailUrl = videoId => `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
-    
-    const filteredVideos = sourceData.filter(v => videoIds.includes(v.videoId));
-    
-    container.innerHTML = filteredVideos.map(video => 
-        `<div class="video-entry space-y-3">
-            <div class="video-thumbnail-container shadow-2xl" data-embed-url="${video.embedUrl}">
-                <img src="${getThumbnailUrl(video.videoId)}" alt="Thumbnail for ${video.title}" loading="lazy" class="rounded-xl">
-                <div class="play-button">
-                    <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                </div>
-            </div>
-            <p class="text-lg font-medium text-gray-700 text-center">${video.title}</p>
-        </div>`
-    ).join('');
-    
-    // Add click listeners to open the lightbox
-    container.querySelectorAll('.video-thumbnail-container').forEach(thumbnail => {
-        thumbnail.addEventListener('click', () => {
-            const embedUrl = thumbnail.dataset.embedUrl;
-            if (embedUrl) {
-                openLightbox(embedUrl);
-            }
-        });
-    });
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    
+    // Function to get the YouTube high-quality thumbnail URL
+    const getThumbnailUrl = videoId => `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+    
+    const filteredVideos = sourceData.filter(v => videoIds.includes(v.videoId));
+    
+    container.innerHTML = filteredVideos.map(video => 
+        `<div class="video-entry space-y-3">
+            <div class="video-thumbnail-container shadow-2xl" data-embed-url="${video.embedUrl}">
+                <img src="${getThumbnailUrl(video.videoId)}" alt="Thumbnail for ${video.title}" loading="lazy" class="rounded-xl">
+                <div class="play-button">
+                    <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+            </div>
+            <p class="text-lg font-medium text-gray-700 text-center">${video.title}</p>
+        </div>`
+    ).join('');
+    
+    // Add click listeners to open the lightbox
+    container.querySelectorAll('.video-thumbnail-container').forEach(thumbnail => {
+        thumbnail.addEventListener('click', () => {
+            const embedUrl = thumbnail.dataset.embedUrl;
+            if (embedUrl) {
+                openLightbox(embedUrl);
+            }
+        });
+    });
 };
 
 /**
- * Opens the video lightbox with the specified embed URL.
- * @param {string} embedUrl - The YouTube embed URL.
- */
+ * Opens the video lightbox with the specified embed URL.
+ * @param {string} embedUrl - The YouTube embed URL.
+ */
 function openLightbox(embedUrl) {
-    const modal = document.getElementById('lightbox-modal');
-    const iframe = document.getElementById('lightbox-video-frame');
-    // Start the video autoplay when opened
-    iframe.src = `${embedUrl}?autoplay=1`; 
-    modal.classList.add('active');
+    const modal = document.getElementById('lightbox-modal');
+    const iframe = document.getElementById('lightbox-video-frame');
+    // Start the video autoplay when opened
+    iframe.src = `${embedUrl}?autoplay=1`; 
+    modal.classList.add('active');
 };
 
 /**
- * Closes the video lightbox and stops the video.
- */
+ * Closes the video lightbox and stops the video.
+ */
 function closeLightbox() {
-    const modal = document.getElementById('lightbox-modal');
-    const iframe = document.getElementById('lightbox-video-frame');
-    // Set src to empty string to stop playback
-    iframe.src = ''; 
-    modal.classList.remove('active');
+    const modal = document.getElementById('lightbox-modal');
+    const iframe = document.getElementById('lightbox-video-frame');
+    // Set src to empty string to stop playback
+    iframe.src = ''; 
+    modal.classList.remove('active');
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Video Gallery initialization
-    renderVideoGallery('video-gallery-container', ['36gtyc_Mq6g', 'i8Ihmrn58IE', 'aUu4pIqz4EY', 'i1TVhcETwjo', 'whZTlSOmhlo', 'xu96IKxlnLI', 'ZFktQwJlL50'], featuredVideoData);
-    renderVideoGallery('humor-gallery-container', ['ZO3c5gshfEQ','vsXkJKXMx7k','ZtJDutXVWsE','u6j8HaIbLbI'], humorVideoData);
-    renderVideoGallery('public-service-gallery-container', ['TtfR-Uv_YjA','cQZ547663-U'], publicServiceVideoData);
-    
-    // Lightbox functionality
-    const modal = document.getElementById('lightbox-modal');
-    const closeButton = document.getElementById('lightbox-close-button');
-    closeButton.addEventListener('click', closeLightbox);
-    
-    // Close modal when clicking the backdrop
-    modal.addEventListener('click', event => {
-        if (event.target === modal) {
-            closeLightbox();
-        }
-    });
-    
-    // Close modal when Escape key is pressed
-    document.addEventListener('keydown', event => {
-        if (event.key === 'Escape' && modal.classList.contains('active')) {
-            closeLightbox();
-        }
-    });
+    // Video Gallery initialization
+    renderVideoGallery('video-gallery-container', ['36gtyc_Mq6g', 'i8Ihmrn58IE', 'aUu4pIqz4EY', 'i1TVhcETwjo', 'whZTlSOmhlo', 'xu96IKxlnLI', 'ZFktQwJlL50'], featuredVideoData);
+    renderVideoGallery('humor-gallery-container', ['ZO3c5gshfEQ','vsXkJKXMx7k','ZtJDutXVWsE','u6j8HaIbLbI'], humorVideoData);
+    renderVideoGallery('public-service-gallery-container', ['TtfR-Uv_YjA','cQZ547663-U'], publicServiceVideoData);
+    
+    // Lightbox functionality
+    const modal = document.getElementById('lightbox-modal');
+    const closeButton = document.getElementById('lightbox-close-button');
+    closeButton.addEventListener('click', closeLightbox);
+    
+    // Close modal when clicking the backdrop
+    modal.addEventListener('click', event => {
+        if (event.target === modal) {
+            closeLightbox();
+        }
+    });
+    
+    // Close modal when Escape key is pressed
+    document.addEventListener('keydown', event => {
+        if (event.key === 'Escape' && modal.classList.contains('active')) {
+            closeLightbox();
+        }
+    });
 });
 </script>
 </head>
@@ -298,7 +298,10 @@ Paul’s memoir, <span class="font-bold">Johnny’s Cloud</span>, is a delightfu
 </p>
 <!-- Accent color change -->
 <p class="mt-4 text-center text-sm font-semibold">The book is available wherever fine literature is spurned.</p>
-<p <a href="https://en.wikipedia.org/wiki/Memoir" class="accent-black hover:text-gray-700 underline" target="_blank">Get your memoir now!</a></p>
+<!-- Corrected hyperlink structure and added text-center for centering -->
+<p class="text-center">
+    <a href="https://en.wikipedia.org/wiki/Memoir" class="accent-black hover:text-gray-700 underline font-bold" target="_blank">Get your memoir now!</a>
+</p>
 </div>
 </div>
 </div>
@@ -309,7 +312,7 @@ Paul’s memoir, <span class="font-bold">Johnny’s Cloud</span>, is a delightfu
 <section id="gallery" class="py-8 md:py-12 bg-white scroll-margin-top">
 <div class="max-w-7xl mx-auto px-6 lg:px-8">
 <!-- Accent color and border color change -->
-<h2 class="text-3xl font-light text-gray-900 mb-8 text-center border-b pb-4 inline-block border-accent-black uppercase tracking-widest">Video Gallery & Featured Work</h2>
+<h2 class="text-3xl font-light text-gray-900 mb-8 text-center border-b pb-4 inline-block border-accent-black uppercase tracking-widest">Video Gallery & Featured Work </h2>
 <div id="video-gallery-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
 <!-- Accent color and border color change -->
 <h2 class="text-3xl font-light text-gray-900 mt-12 mb-8 text-center border-b pb-4 inline-block border-accent-black uppercase tracking-widest">Humor and Rarities</h2>
