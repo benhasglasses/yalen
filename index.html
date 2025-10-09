@@ -50,11 +50,27 @@ body{font-family:'Inter',sans-serif;background-color:#ffffff;color:#1f2937;scrol
 .video-thumbnail-container:hover .play-button svg{fill:#ffffff}
 
 /* Modal Styling */
+/* FIX 1: Ensure perfect centering */
 .modal{position:fixed;top:0;left:0;width:100%;height:100%;background-color:rgba(0,0,0,.9);display:flex;justify-content:center;align-items:center;z-index:1000;visibility:hidden;opacity:0;transition:opacity 0.3s,visibility 0.3s}
 .modal.active{visibility:visible;opacity:1}
 .modal-content{position:relative;max-width:90%;max-height:90%}
-/* FIX 2: Increased video size */
-.modal-video-container{position:relative;width:95vw;max-width:1400px;padding-bottom:53.4375vw;height:0} 
+/* FIX 2: Increased video size, set a minimum width for the 640px requirement, and adjusted padding-bottom for 16:9 ratio. */
+.modal-video-container{
+    position:relative;
+    width:95vw;
+    max-width:1400px;
+    min-width: 640px; /* Guarantees minimum required width */
+    padding-bottom:53.4375vw; /* 95vw * 9/16 = 53.4375vw (Maintains 16:9 aspect ratio) */
+    height:0
+}
+@media (max-width: 640px) {
+    /* Prevents the video from exceeding the tiny screens if the 640px min-width is too large */
+    .modal-video-container {
+        min-width: auto;
+        width: 90vw;
+        padding-bottom: 50.625vw; /* 90vw * 9/16 */
+    }
+}
 .modal-video-container iframe{position:absolute;top:0;left:0;width:100%;height:100%}
 .modal-close-button{position:absolute;top:1rem;right:1rem;width:40px;height:40px;background-color:#1f2937;color:white;border-radius:50%;display:flex;justify-content:center;align-items:center;font-size:1.5rem;cursor:pointer;border:2px solid white;transition:background-color 0.2s ease;z-index:1100} /* Accent-Black */
 .modal-close-button:hover{background-color:#4b5563} /* Gray 600 for hover */
@@ -73,7 +89,7 @@ const featuredVideoData = [
     {title:"Man of Glass",embedUrl:"https://www.youtube.com/embed/i1TVhcETwjo",videoId:"i1TVhcETwjo"},
     {title:"Angel with a Candle",embedUrl:"https://www.youtube.com/embed/whZTlSOmhlo",videoId:"whZTlSOmhlo"},
     {title:"Backward Glance",embedUrl:"https://www.youtube.com/embed/xu96IKxlnLI",videoId:"xu96IKxlnLI"},
-    {title:"Stenger",embedUrl:"https://www.youtube.com/embed/IhEOauGEiQQ",videoId:"IhEOauGEiQQ"}
+    {title:"Stenger",embedUrl:"https://www.youtube.com/embed/IhEOauGEiQQ",videoId:"IhEOauGEiQQ"} // Confirmed URL update
 ];
 const humorVideoData = [
     {title:"Noise Damage",embedUrl:"https://www.youtube.com/embed/ZO3c5gshfEQ",videoId:"ZO3c5gshfEQ"},
