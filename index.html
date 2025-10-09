@@ -1,927 +1,416 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>PY Songs International / Song Saviors Ltd. - Hit Songwriting & Screenwriting</title>
-
-<!-- SEO IMPROVEMENTS START -->
-
-<!-- Descriptive Meta Tags for Search Engines -->
-
 <meta name="description" content="Official website for PY Songs International and Song Saviors Ltd., offering hit-quality songwriting, screenplays, and surgical song repair services by Paul Yalen, a celebrated songwriter and filmmaker.">
-
 <meta name="keywords" content="Paul Yalen, PY Songs International, Song Saviors Ltd, songwriting, screenwriter, film scores, Broadway songs, music repair, Secret Pain, Prep Boys">
 
-
-
-<!-- Open Graph / Social Media Tags (For richer shares on platforms like Facebook and LinkedIn) -->
-
 <meta property="og:title" content="PY Songs International / Song Saviors Ltd.">
-
 <meta property="og:description" content="Creating hit-quality songs for Broadway, film, TV, and more. Songwriting and Screenwriting services by Paul Yalen.">
-
 <meta property="og:type" content="website">
-
 <meta property="og:url" content="https://www.paulyalen.net">
-
-<meta property="og:image" content="https://raw.githubusercontent.com/benhasglasses/yalen/refs/heads/main/images/logo-placeholder.png"> <!-- Add a link to a high-quality logo/preview image -->
-
-
-
-<!-- JSON-LD Structured Data (Schema.org) for better search indexing of the business -->
-
-<script type="application/ld+json">
-
+<meta property="og:image" content="https://raw.githubusercontent.com/benhasglasses/yalen/refs/heads/main/images/logo-placeholder.png"> <script type="application/ld+json">
 {
-
   "@context": "https://schema.org",
-
   "@type": "Organization",
-
   "name": "PY Songs International / Song Saviors Ltd.",
-
   "url": "https://www.paulyalen.net",
-
   "logo": "https://raw.githubusercontent.com/benhasglasses/yalen/refs/heads/main/images/logo-placeholder.png",
-
   "description": "Professional songwriting, screenwriting, and music correction services.",
-
   "contactPoint": {
-
     "@type": "ContactPoint",
-
     "email": "PYSongsLtd@gmail.com",
-
     "contactType": "Customer Service"
-
   }
-
 }
-
 </script>
-
-<!-- SEO IMPROVEMENTS END -->
-
-
-
 <script src="https://cdn.tailwindcss.com"></script>
-
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-
 <style>
-
 /* --- Monochrome Color Definitions (Dark Gray/Black Accent) --- */
-
 /* Near Black / Dark Gray for Accent */
-
 .accent-black{color:#1f2937}
-
 .bg-accent-black{background-color:#1f2937}
-
 .border-accent-black{border-color:#1f2937}
 
-
-
 body{font-family:'Inter',sans-serif;background-color:#ffffff;color:#1f2937;scroll-behavior:smooth}
-
-/* Ensure the sticky header has a solid background */
-
-.section-header{position:sticky;top:0;z-index:50; background-color: #111827;} 
-
+/* .section-header custom CSS removed. Header positioning is now handled by Tailwind's 'fixed w-full top-0 z-50' classes on the element itself. */
 .nav-link:hover{color:#4b5563;text-decoration:none} /* Gray 600 for hover */
-
 .tush-bg{background-color:#ffffff;color:#1f2937}
 
-
-
-/* Added padding to adjust scroll position for fixed header */
-
-.scroll-margin-top {
-
-    scroll-margin-top: 100px; /* Adjust this value based on the header height */
-
-}
-
-
-
 /* Video Thumbnail Styling */
-
 .video-thumbnail-container{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;max-width:100%;cursor:pointer;border-radius:0.75rem}
-
 .video-thumbnail-container img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;transition:transform 0.3s ease}
-
 .video-thumbnail-container:hover img{transform:scale(1.05)}
-
 .video-thumbnail-container .play-button{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:64px;height:64px;background-color:rgba(255,255,255,.9);border-radius:50%;display:flex;align-items:center;justify-content:center;pointer-events:none;transition:background-color 0.3s ease}
-
 .video-thumbnail-container:hover .play-button{background-color:#1f2937} /* Accent-Black */
-
 .play-button svg{fill:#1f2937;width:32px;height:32px} /* Accent-Black */
-
 .video-thumbnail-container:hover .play-button svg{fill:#ffffff}
 
-
-
 /* Modal Styling */
-
 .modal{position:fixed;top:0;left:0;width:100%;height:100%;background-color:rgba(0,0,0,.9);display:flex;justify-content:center;align-items:center;z-index:1000;visibility:hidden;opacity:0;transition:opacity 0.3s,visibility 0.3s}
-
 .modal.active{visibility:visible;opacity:1}
-
 .modal-content{position:relative;max-width:90%;max-height:90%}
-
-/* Fluid video aspect ratio: 16:9 (100 / (16/9) = 56.25% - using 45vw for slightly less height on desktop) */
-
-.modal-video-container{position:relative;width:80vw;max-width:1200px;padding-bottom:45vw;height:0} 
-
+/* FIX 2: Increased video size */
+.modal-video-container{position:relative;width:95vw;max-width:1400px;padding-bottom:53.4375vw;height:0} 
 .modal-video-container iframe{position:absolute;top:0;left:0;width:100%;height:100%}
-
 .modal-close-button{position:absolute;top:1rem;right:1rem;width:40px;height:40px;background-color:#1f2937;color:white;border-radius:50%;display:flex;justify-content:center;align-items:center;font-size:1.5rem;cursor:pointer;border:2px solid white;transition:background-color 0.2s ease;z-index:1100} /* Accent-Black */
-
 .modal-close-button:hover{background-color:#4b5563} /* Gray 600 for hover */
 
-
-
 /* DVD Case Styling */
-
 .dvd-case-container{width:240px;margin-top:1.5rem;margin-left:auto;margin-right:auto;box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.05);border-radius:0.5rem;overflow:hidden}
-
 .dvd-case-container img{width:100%;height:auto;display:block}
-
 @media (max-width:640px){.dvd-case-container{width:120px}}
-
 </style>
-
 <script>
-
 // --- Video Data Definitions ---
-
 const featuredVideoData = [
-
     {title:"Allies",embedUrl:"https://www.youtube.com/embed/36gtyc_Mq6g",videoId:"36gtyc_Mq6g"},
-
     {title:"Secret Pain | Music Video",embedUrl:"https://www.youtube.com/embed/i8Ihmrn58IE",videoId:"i8Ihmrn58IE"},
-
     {title:"Weekly Movie Review | Secret Pain",embedUrl:"https://www.youtube.com/embed/aUu4pIqz4EY",videoId:"aUu4pIqz4EY"},
-
     {title:"Man of Glass",embedUrl:"https://www.youtube.com/embed/i1TVhcETwjo",videoId:"i1TVhcETwjo"},
-
     {title:"Angel with a Candle",embedUrl:"https://www.youtube.com/embed/whZTlSOmhlo",videoId:"whZTlSOmhlo"},
-
     {title:"Backward Glance",embedUrl:"https://www.youtube.com/embed/xu96IKxlnLI",videoId:"xu96IKxlnLI"},
-
-    {title:"Stenger",embedUrl:"https://www.youtube.com/embed/ZFktQwJlL50",videoId:"ZFktQwJlL50"}
-
+    {title:"Stenger",embedUrl:"https://www.youtube.com/embed/IhEOauGEiQQ",videoId:"IhEOauGEiQQ"}
 ];
-
 const humorVideoData = [
-
     {title:"Noise Damage",embedUrl:"https://www.youtube.com/embed/ZO3c5gshfEQ",videoId:"ZO3c5gshfEQ"},
-
     {title:"Firefighters Workout",embedUrl:"https://www.youtube.com/embed/vsXkJKXMx7k",videoId:"vsXkJKXMx7k"},
-
     {title:"Children's Film Acting School",embedUrl:"https://www.youtube.com/embed/ZtJDutXVWsE",videoId:"ZtJDutXVWsE"},
-
     {title:"Volcano Busters",embedUrl:"https://www.youtube.com/embed/u6j8HaIbLbI",videoId:"u6j8HaIbLbI"}
-
 ];
-
 const publicServiceVideoData = [
-
     {title:"Life on the Farm",embedUrl:"https://www.youtube.com/embed/TtfR-Uv_YjA",videoId:"TtfR-Uv_YjA"},
-
     {title:"In My Place",embedUrl:"https://www.youtube.com/embed/cQZ547663-U",videoId:"cQZ547663-U"}
-
 ];
 
-
-
 /**
-
  * Renders video thumbnails into a specified gallery container.
-
  * @param {string} containerId - The ID of the container element.
-
  * @param {string[]} videoIds - Array of video IDs to display.
-
  * @param {Array<Object>} sourceData - The full data source array.
-
  */
-
 function renderVideoGallery(containerId, videoIds, sourceData) {
-
     const container = document.getElementById(containerId);
-
     if (!container) return;
-
     
-
     // Function to get the YouTube high-quality thumbnail URL
-
     const getThumbnailUrl = videoId => `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
-
     
-
     const filteredVideos = sourceData.filter(v => videoIds.includes(v.videoId));
-
     
-
     container.innerHTML = filteredVideos.map(video => 
-
         `<div class="video-entry space-y-3">
-
             <div class="video-thumbnail-container shadow-2xl" data-embed-url="${video.embedUrl}">
-
                 <img src="${getThumbnailUrl(video.videoId)}" alt="Thumbnail for ${video.title}" loading="lazy" class="rounded-xl">
-
                 <div class="play-button">
-
                     <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-
                 </div>
-
             </div>
-
             <p class="text-lg font-medium text-gray-700 text-center">${video.title}</p>
-
         </div>`
-
     ).join('');
-
     
-
     // Add click listeners to open the lightbox
-
     container.querySelectorAll('.video-thumbnail-container').forEach(thumbnail => {
-
         thumbnail.addEventListener('click', () => {
-
             const embedUrl = thumbnail.dataset.embedUrl;
-
             if (embedUrl) {
-
                 openLightbox(embedUrl);
-
             }
-
         });
-
     });
-
 };
 
-
-
 /**
-
  * Opens the video lightbox with the specified embed URL.
-
  * @param {string} embedUrl - The YouTube embed URL.
-
  */
-
 function openLightbox(embedUrl) {
-
     const modal = document.getElementById('lightbox-modal');
-
     const iframe = document.getElementById('lightbox-video-frame');
-
     // Start the video autoplay when opened
-
     iframe.src = `${embedUrl}?autoplay=1`; 
-
     modal.classList.add('active');
-
 };
-
-
 
 /**
-
  * Closes the video lightbox and stops the video.
-
  */
-
 function closeLightbox() {
-
     const modal = document.getElementById('lightbox-modal');
-
     const iframe = document.getElementById('lightbox-video-frame');
-
     // Set src to empty string to stop playback
-
     iframe.src = ''; 
-
     modal.classList.remove('active');
-
 };
-
-
 
 document.addEventListener('DOMContentLoaded', () => {
-
     // Video Gallery initialization
-
-    renderVideoGallery('video-gallery-container', ['36gtyc_Mq6g', 'i8Ihmrn58IE', 'aUu4pIqz4EY', 'i1TVhcETwjo', 'whZTlSOmhlo', 'xu96IKxlnLI', 'ZFktQwJlL50'], featuredVideoData);
-
+    renderVideoGallery('video-gallery-container', ['36gtyc_Mq6g', 'i8Ihmrn58IE', 'aUu4pIqz4EY', 'i1TVhcETwjo', 'whZTlSOmhlo', 'xu96IKxlnLI', 'IhEOauGEiQQ'], featuredVideoData);
     renderVideoGallery('humor-gallery-container', ['ZO3c5gshfEQ','vsXkJKXMx7k','ZtJDutXVWsE','u6j8HaIbLbI'], humorVideoData);
-
     renderVideoGallery('public-service-gallery-container', ['TtfR-Uv_YjA','cQZ547663-U'], publicServiceVideoData);
-
     
-
     // Lightbox functionality
-
     const modal = document.getElementById('lightbox-modal');
-
     const closeButton = document.getElementById('lightbox-close-button');
-
     closeButton.addEventListener('click', closeLightbox);
-
     
-
     // Close modal when clicking the backdrop
-
     modal.addEventListener('click', event => {
-
         if (event.target === modal) {
-
             closeLightbox();
-
         }
-
     });
-
     
-
     // Close modal when Escape key is pressed
-
     document.addEventListener('keydown', event => {
-
         if (event.key === 'Escape' && modal.classList.contains('active')) {
-
             closeLightbox();
-
         }
-
     });
-
 });
-
 </script>
-
 </head>
-
 <body>
-
-<header class="bg-gray-900 text-white shadow-lg section-header">
-
+<header class="bg-gray-900 text-white shadow-lg fixed w-full top-0 z-50">
 <div class="max-w-7xl mx-auto px-6 lg:px-8 py-4 flex flex-col md:flex-row justify-between items-center">
-
 <div class="text-2xl font-extrabold tracking-widest mb-2 md:mb-0">
-
 <a href="#home">PAULYALEN.NET</a>
-
 </div>
-
 <nav class="space-x-4 sm:space-x-8 text-sm font-medium uppercase">
-
 <a href="#about" class="nav-link">About Paul</a>
-
 <a href="#gallery" class="nav-link">Video Gallery</a>
-
 <a href="#songsaviors" class="nav-link">Song Saviors</a>
-
 <a href="#team" class="nav-link">Team</a>
-
-<!-- Contact link re-added -->
-
 <a href="#contact" class="nav-link bg-accent-black text-white px-4 py-2 rounded-full hover:bg-gray-700 transition">Contact</a>
-
 </nav>
-
 </div>
-
 </header>
 
-
-
-<!-- Added scroll-margin-top class to all sections to account for fixed header -->
-
-<!-- Reduced spacing: py-6 md:py-8 -->
-
-<section id="home" class="py-6 md:py-8 bg-white text-center scroll-margin-top">
-
+<section id="home" class="pt-44 pb-6 md:pb-8 bg-white text-center">
 <div class="max-w-7xl mx-auto px-6">
-
 <h1 class="text-4xl sm:text-6xl font-light text-gray-900 mb-6 tracking-tight">
-
-<!-- Accent color change -->
-
 Welcome to <span class="accent-black font-semibold">PY Songs International</span> / Song Saviors Ltd.
-
 </h1>
-
 <p class="text-xl sm:text-3xl font-light text-gray-500 mb-16">
-
 Creating hit-quality songs for Broadway, film, TV and more.
-
 </p>
-
 <div class="grid md:grid-cols-2 gap-10 text-left">
-
 <div class="space-y-6">
-
 <p class="text-lg font-medium text-gray-700 leading-relaxed">Do you need a powerful, hit-caliber ballad to serve as the theme for your latest feature film?</p>
-
 <p class="text-lg font-medium text-gray-700 leading-relaxed">Are you desperately seeking a madcap, show-stopping production number to close Act One of your Broadway or off-Broadway musical?</p>
-
 <p class="text-lg font-medium text-gray-700 leading-relaxed">Does your country or bluegrass band need a sure-fire Top Ten hit?</p>
-
 <p class="text-lg font-medium text-gray-700 leading-relaxed">Do you need a feature film screenplay that rivals the quality of "The Reivers"?</p>
-
 <p class="text-lg font-medium text-gray-700 leading-relaxed">Have you been struggling with a tune of your own that just doesn’t work and requires seamless surgical intervention to revamp it into a Billboard chartbuster?</p>
-
 </div>
-
 <div class="space-y-6">
-
-
-
-<!-- Accent color and border color change -->
 
 <div class="mt-8 p-8 bg-gray-100 rounded-xl shadow-inner border-l-4 border-accent-black">
-
 <p class="text-xl font-bold mb-4">
-
 If you’re relentlessly serious about catapulting your project into the upper stratosphere and beyond, we’re here to help.
-
 </p>
-
-<!-- Accent color change -->
-
 <p class="text-3xl font-extrabold accent-black">Just Call Paul.</p>
-
 </div>
-
 <div class="mt-8 p-6 bg-white border rounded-xl shadow-md">
-
 <p class="text-lg italic font-serif">
-
 “Paul, your song <span class="font-bold">Passing Lane</span> was a smash on NBC’s program <span class="font-bold">Jeep World of Adventure Sports</span>. Congrats!”
-
 </p>
-
 <p class="mt-2 text-right text-sm text-gray-500">— Marc Emert-Hutner, ASCAP, verified</p>
-
 </div>
-
 </div>
-
 </div>
-
 </div>
-
 </section>
 
-
-
-<!-- Reduced spacing: py-8 md:py-12 -->
-
-<section id="about" class="py-8 md:py-12 bg-gray-50 scroll-margin-top">
-
+<section class="py-8 md:py-12 bg-gray-50">
 <div class="max-w-7xl mx-auto px-6 lg:px-8">
-
-<h2 class="text-3xl font-light text-gray-900 mb-8 text-center border-b pb-4 inline-block border-accent-black uppercase tracking-widest">About Paul</h2>
-
+    <h2 id="about" class="text-3xl font-light text-gray-900 mb-8 text-center border-b pb-4 inline-block border-accent-black uppercase tracking-widest pt-32 -mt-20">About Paul</h2>
 <div class="grid md:grid-cols-5 gap-8 items-start">
-
 <div class="md:col-span-3 space-y-6">
-
 <p class="text-lg leading-relaxed">
-
 <span class="font-bold">Paul Yalen</span> is an American songwriter, screenwriter, director and former performer. First signed in his 20s by Beatles promoter Sid Bernstein, Paul has subsequently created a catalog of over 200 hit-caliber songs.
-
 </p>
-
-<!-- Accent color and border color change -->
-
 <h3 class="text-xl font-semibold text-gray-700 border-l-4 pl-4 border-accent-black">Celebrity Collaborators</h3>
-
 <ul class="list-disc list-inside space-y-2 ml-4 text-base">
-
 <li>Country singer Kenny Rogers</li>
-
 <li>Broadway star Aaron Lazar</li>
-
 <li>Bluegrass legend Phil Rosenthal</li>
-
 <li>British rock icon Derek Holt</li>
-
 <li>Jazz diva Amanda Carr</li>
-
 <li>Actress Eliza Dushku</li>
-
 </ul>
-
-<!-- Accent color and border color change -->
-
 <h3 class="text-xl font-semibold text-gray-700 border-l-4 pl-4 border-accent-black">Screenplays & Films by Paul</h3>
-
 <ul class="list-disc list-inside space-y-2 ml-4 text-base">
-
 <li>The Children's Coloring Book of Revenge</li>
-
 <li>First Time for Everything</li>
-
 <li>Secret Pain</li>
-
 <li>Stenger</li>
-
 </ul>
-
 <p class="text-lg leading-relaxed pt-4">
-
 Paul also wrote, directed and scored the cult comedy feature film “Prep Boys” and several comedy sketches.
-
 </p>
-
 <div class="dvd-case-container">
-
 <img src="https://raw.githubusercontent.com/benhasglasses/yalen/refs/heads/main/images/prepboys.jpg"
-
 alt="DVD Case Placeholder for Prep Boys film">
-
 </div>
-
 </div>
-
 <div class="md:col-span-2 space-y-8">
-
 <div class="text-center">
-
 <img src="https://raw.githubusercontent.com/benhasglasses/yalen/refs/heads/main/images/backwardscenes.jpg"
-
 alt="Paul Yalen and cast of the Backward Glance music video"
-
 class="rounded-xl shadow-xl w-full h-auto object-cover">
-
 <p class="mt-2 text-sm text-gray-500">Paul and cast of the "Backward Glance" music video.</p>
-
 </div>
-
 <div class="p-6 bg-white rounded-xl shadow-lg border border-gray-100">
-
-<!-- Accent color change -->
-
 <h3 class="text-xl font-extrabold text-gray-900 mb-4 accent-black">MEMOIR</h3>
-
 <img src="https://raw.githubusercontent.com/benhasglasses/yalen/refs/heads/main/images/books.png"
-
 alt="Book bookends placeholder"
-
 class="w-1/2 mx-auto h-auto mb-4 rounded-lg">
-
 <p class="text-base italic font-serif leading-relaxed text-gray-600">
-
 Paul’s memoir, <span class="font-bold">Johnny’s Cloud</span>, is a delightfully bittersweet chronicle of his adventures as a struggling young songwriter trying to make his mark in the savagely competitive music industry.
-
 </p>
-
-<!-- Accent color change -->
-
 <p class="mt-4 text-center text-sm font-semibold">The book is available wherever fine literature is spurned.</p>
-
-<!-- Corrected hyperlink structure and added text-center for centering -->
-
 <p class="text-center">
-
     <a href="https://en.wikipedia.org/wiki/Memoir" class="accent-black hover:text-gray-700 underline font-bold" target="_blank">Get your memoir now!</a>
-
 </p>
-
 </div>
-
 </div>
-
 </div>
-
 </div>
-
 </section>
 
-
-
-<!-- Reduced spacing: py-8 md:py-12 -->
-
-<section id="gallery" class="py-8 md:py-12 bg-white scroll-margin-top">
-
+<section class="py-8 md:py-12 bg-white">
 <div class="max-w-7xl mx-auto px-6 lg:px-8">
-
-<!-- Accent color and border color change -->
-
-<h2 class="text-3xl font-light text-gray-900 mb-8 text-center border-b pb-4 inline-block border-accent-black uppercase tracking-widest">Video Gallery & Featured Work </h2>
-
+    <h2 id="gallery" class="text-3xl font-light text-gray-900 mb-8 text-center border-b pb-4 inline-block border-accent-black uppercase tracking-widest pt-32 -mt-20">Video Gallery & Featured Work </h2>
 <div id="video-gallery-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
-
-<!-- Accent color and border color change -->
-
-<h2 class="text-3xl font-light text-gray-900 mt-12 mb-8 text-center border-b pb-4 inline-block border-accent-black uppercase tracking-widest">Humor and Rarities</h2>
-
+<h2 id="humor-gallery" class="text-3xl font-light text-gray-900 mt-12 mb-8 text-center border-b pb-4 inline-block border-accent-black uppercase tracking-widest pt-32 -mt-20">Humor and Rarities</h2>
 <div id="humor-gallery-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
-
-<!-- Accent color and border color change -->
-
-<h2 class="text-3xl font-light text-gray-900 mt-12 mb-8 text-center border-b pb-4 inline-block border-accent-black uppercase tracking-widest">Public Service</h2>
-
+<h2 id="public-service-gallery" class="text-3xl font-light text-gray-900 mt-12 mb-8 text-center border-b pb-4 inline-block border-accent-black uppercase tracking-widest pt-32 -mt-20">Public Service</h2>
 <div id="public-service-gallery-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
-
 </div>
-
 </section>
 
-
-
-<!-- Reduced spacing: py-8 md:py-12 -->
-
-<section id="songsaviors" class="py-8 md:py-12 tush-bg scroll-margin-top">
-
+<section class="py-8 md:py-12 tush-bg">
 <div class="max-w-4xl mx-auto px-6 text-center">
-
-<!-- Accent color change -->
-
-<h2 class="text-3xl font-light mb-4 accent-black uppercase tracking-widest">Song Saviors Ltd.</h2>
-
+<h2 id="songsaviors" class="text-3xl font-light mb-4 accent-black uppercase tracking-widest pt-32 -mt-20">Song Saviors Ltd.</h2>
 <p class="text-lg font-light mb-8 text-gray-500">
-
 READY TO HAVE YOUR WEAK SONG REPAIRED BUT FEARFUL OF THE PROCESS?
-
 </p>
-
-<!-- Accent color and border color change (using gray-900 for border) -->
-
 <div class="p-8 bg-gray-100 rounded-2xl shadow-2xl border border-gray-900">
-
 <h3 class="text-2xl font-bold mb-4 text-gray-700 tracking-wider">
-
 RELAX! HERE’S HOW IT WORKS:
-
 </h3>
-
 <p class="text-base leading-relaxed mb-6 text-gray-700">
-
 PY Songs International and Song Saviors Ltd. are dedicated to relieving the extreme anxiety experienced by many of our composer clients who arrive at our clinic to have their ailing songs surgically made over.
-
 </p>
-
-<!-- TUSH color changed from text-red-600 to accent-black -->
-
 <p class="text-xl font-extrabold mb-6 accent-black">
-
 Our concept is based on recognizing and taking steps to reduce the <span class="underline">Terror, Utter Disgust, Stress and Horror</span> (hereafter referred to as <span class="accent-black">TUSH</span>) associated with a composer's visit to a song doctor.
-
 </p>
-
 <div class="grid md:grid-cols-2 gap-6 mt-6 text-left text-gray-700">
-
 <div>
-
-<!-- Accent color change -->
-
 <h4 class="text-lg font-semibold mb-3 accent-black">Recognizing TUSH in a composer client:</h4>
-
 <p class="mb-4 text-sm">Common signs include: a tense face, snarling or growling. In severe cases, we may see crouched posture, hissing and ears pinned down to the side.</p>
-
-<!-- Accent color change -->
-
 <h4 class="text-lg font-semibold mb-3 accent-black">Stressors:</h4>
-
 <p class="text-sm">Examples include noise, odor, pain, erroneous repetition and odor. Our goal is to reduce such stress for optimal song treatment.</p>
-
 </div>
-
 <div>
-
-<!-- Accent color change -->
-
 <h4 class="text-lg font-semibold mb-3 accent-black">Reducing TUSH:</h4>
-
 <p class="mb-4 text-sm">The song doctor speaks in a calm, quiet voice. Rewards such as treats, toys, or petting are used during diagnostic exams.</p>
-
-<!-- Accent color change -->
-
 <h4 class="text-lg font-semibold mb-3 accent-black">Advanced Procedures:</h4>
-
 <p class="text-sm">For key changes or deleting a verse, a towel wrap, muzzle, or Elizabethan collar may be needed. Sedatives or calming pheromones are available.</p>
-
 </div>
-
 </div>
-
-<!-- Accent color change and border color change (using gray-900 for border) -->
-
 <div class="mt-8 pt-4 border-t border-gray-900">
-
 <p class="text-xl font-extrabold accent-black">
-
 Come in and try it today!
-
 </p>
-
 </div>
-
 </div>
-
 </div>
-
 </section>
 
-
-
-<!-- Reduced spacing: py-8 md:py-12 -->
-
-<section id="team" class="py-8 md:py-12 bg-gray-50 scroll-margin-top">
-
+<section class="py-8 md:py-12 bg-gray-50">
 <div class="max-w-7xl mx-auto px-6 lg:px-8">
-
-<!-- Accent color and border color change -->
-
-<h2 class="text-3xl font-light text-gray-900 mb-8 text-center border-b pb-4 inline-block border-accent-black uppercase tracking-widest">Meet Our Support Team</h2>
-
+<h2 id="team" class="text-3xl font-light text-gray-900 mb-8 text-center border-b pb-4 inline-block border-accent-black uppercase tracking-widest pt-32 -mt-20">Meet Our Support Team</h2>
 <div class="grid lg:grid-cols-3 gap-8">
-
 <div class="p-6 rounded-xl shadow-lg bg-white border border-gray-100">
-
 <img src="https://raw.githubusercontent.com/benhasglasses/yalen/refs/heads/main/images/blur.png"
-
 alt="Penchant Furfors, blurred for security purposes"
-
 class="rounded-xl w-full h-auto object-cover mb-4 shadow-md">
-
-<!-- Accent color change -->
-
 <h3 class="text-xl font-bold text-gray-900">Penchant Furfors, <span class="accent-black">Security</span></h3>
-
 <p class="text-sm text-gray-500 mb-4 italic">Photo blurred for security purposes.</p>
-
 <p class="text-base leading-relaxed text-gray-700">
-
 Originally employed as an outdoor privy disassembler, today Penchant is still breaking heads as our security manager. Born in eastern Kiribati, he takes no guff from thieves. When the Mafia attempted to take over PY Songs, Penchant cut short both their interest and their appendages. In his spare time, Penchant enjoys horseback riding, hiking and lacquering his foot collection.
-
 </p>
-
 </div>
-
 <div class="lg:col-span-2 space-y-8">
-
 <div class="h-64 md:h-80 w-full rounded-xl shadow-xl flex items-center justify-center bg-gray-200">
-
 <img src="https://raw.githubusercontent.com/benhasglasses/yalen/refs/heads/main/images/vault.jpg"
-
 alt="The PY Songs International song vault"
-
 class="rounded-xl object-cover w-full h-full">
-
 </div>
-
 <div class="p-6 rounded-xl shadow-lg bg-white border border-gray-100 flex flex-col sm:flex-row items-center gap-6">
-
 <img src="https://raw.githubusercontent.com/benhasglasses/yalen/refs/heads/main/images/cat.jpg"
-
 alt="Oscar the cat, Quality Control"
-
 class="rounded-full w-24 h-24 object-cover flex-shrink-0 shadow-md">
-
 <div>
-
-<!-- Accent color change -->
-
 <h3 class="text-xl font-bold text-gray-900">Oscar, <span class="accent-black">Quality Control</span></h3>
-
 <p class="text-base leading-relaxed mt-2 text-gray-700">
-
 Oscar turned up on our yard one day and liked the chow so much he decided to stay. If Oscar hisses at a new PY song, we know to scrap it.
-
 </p>
-
 </div>
-
 </div>
-
 </div>
-
 </div>
-
 </div>
-
 </section>
 
-
-
-<!-- Contact section updated: Removed form, added direct email instructions -->
-
-<section id="contact" class="py-8 md:py-12 bg-gray-50 text-gray-900 scroll-margin-top">
-
+<section class="py-8 md:py-12 bg-gray-50 text-gray-900">
 <div class="max-w-4xl mx-auto px-6">
-
-<!-- Accent color and border color change -->
-
-<h2 class="text-3xl font-light accent-black mb-8 text-center border-b pb-4 inline-block border-accent-black uppercase tracking-widest">FAQ & Contact</h2>
-
+<h2 id="contact" class="text-3xl font-light accent-black mb-8 text-center border-b pb-4 inline-block border-accent-black uppercase tracking-widest pt-32 -mt-20">FAQ & Contact</h2>
 <div class="grid md:grid-cols-2 gap-8">
-
 <div class="space-y-6">
-
 <div>
-
-<!-- Accent color change -->
-
 <p class="font-bold text-lg mb-1 accent-black">Why don’t you do social media like Twitter/X, Instagram, TikTok, Facebook?</p>
-
 <p class="text-gray-700 text-sm">We have found social media to be a generally negative force, with some exceptions. We prefer a more traditional approach. Most of our clients start out by using our contact form and thereafter maintain correspondence via email, phone and in person.</p>
-
 </div>
-
 <div>
-
-<!-- Accent color change -->
-
 <p class="font-bold text-lg mb-1 accent-black">What are your rates? How do we pay?</p>
-
 <p class="text-gray-700 text-sm">Every situation is different. Our terms are always reasonable and fair. Why not contact us to discuss your particular song or feature film needs?</p>
-
 </div>
-
 </div>
-
 <div class="bg-white p-6 rounded-xl shadow-2xl border border-gray-100 text-center">
-
-<!-- Accent color change -->
-
 <h3 class="text-xl font-semibold mb-6 accent-black">GET IN TOUCH</h3>
-
 <p class="text-lg mb-4 text-gray-700 leading-relaxed">
-
 If you are interested in getting in touch regarding a project or inquiry, please send a message to our dedicated email address.
-
 </p>
-
 <p class="text-2xl font-extrabold mb-4 accent-black">
-
 <a href="mailto:PYSongsLtd@gmail.com" class="hover:underline hover:text-gray-700 transition duration-300">PYSongsLtd@gmail.com</a>
-
 </p>
-
 <p class="text-lg font-semibold text-gray-700">
-
 We look forward to hearing from you.
-
 </p>
-
 </div>
-
 </div>
-
 </div>
-
 </section>
-
-
 
 <footer class="bg-gray-900 border-t border-gray-700 py-6 text-center text-gray-400 text-sm">
-
 <p class="max-w-7xl mx-auto px-4">
-
 Website © 2025 by PY Songs International & Paul Edward Yalen. All rights reserved.
-
 <span class="block sm:inline mt-1 sm:mt-0"></span>
-
 </p>
-
 </footer>
-
 <div id="lightbox-modal" class="modal">
-
 <span id="lightbox-close-button" class="modal-close-button">&times;</span>
-
 <div class="modal-content">
-
 <div class="modal-video-container">
-
 <iframe id="lightbox-video-frame" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 </div>
-
 </div>
-
 </div>
-
 </body>
-
 </html>
