@@ -44,14 +44,13 @@
 .border-accent-black{border-color:#1f2937}
 
 body{font-family:'Inter',sans-serif;background-color:#ffffff;color:#1f2937;scroll-behavior:smooth}
-/* Ensure the sticky header has a solid background */
-.section-header{position:sticky;top:0;z-index:50; background-color: #111827;} 
+/* .section-header custom CSS removed. Header positioning is now handled by Tailwind's 'fixed w-full top-0 z-50' classes on the element itself. */
 .nav-link:hover{color:#4b5563;text-decoration:none} /* Gray 600 for hover */
 .tush-bg{background-color:#ffffff;color:#1f2937}
 
-/* Added padding to adjust scroll position for fixed header */
+/* CRUCIAL FIX: Increased scroll-margin-top from 100px to 150px to prevent content from being cut off by the fixed header, especially when it stacks on mobile. */
 .scroll-margin-top {
-    scroll-margin-top: 100px; /* Adjust this value based on the header height */
+    scroll-margin-top: 150px;
 }
 
 /* Video Thumbnail Styling */
@@ -189,7 +188,8 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 </head>
 <body>
-<header class="bg-gray-900 text-white shadow-lg section-header">
+<!-- FIXED HEADER (used Tailwind classes for positioning) -->
+<header class="bg-gray-900 text-white shadow-lg fixed w-full top-0 z-50">
 <div class="max-w-7xl mx-auto px-6 lg:px-8 py-4 flex flex-col md:flex-row justify-between items-center">
 <div class="text-2xl font-extrabold tracking-widest mb-2 md:mb-0">
 <a href="#home">PAULYALEN.NET</a>
@@ -205,9 +205,8 @@ document.addEventListener('DOMContentLoaded', () => {
 </div>
 </header>
 
-<!-- Added scroll-margin-top class to all sections to account for fixed header -->
-<!-- Reduced spacing: py-6 md:py-8 -->
-<section id="home" class="py-6 md:py-8 bg-white text-center scroll-margin-top">
+<!-- Added pt-36 (144px) to the first section to push content down and clear the fixed header on page load -->
+<section id="home" class="pt-36 pb-6 md:pb-8 bg-white text-center scroll-margin-top">
 <div class="max-w-7xl mx-auto px-6">
 <h1 class="text-4xl sm:text-6xl font-light text-gray-900 mb-6 tracking-tight">
 <!-- Accent color change -->
@@ -245,7 +244,7 @@ If you’re relentlessly serious about catapulting your project into the upper s
 </div>
 </section>
 
-<!-- Reduced spacing: py-8 md:py-12 -->
+<!-- Sections now use consistent vertical padding (py-8 md:py-12) and the custom scroll-margin-top class -->
 <section id="about" class="py-8 md:py-12 bg-gray-50 scroll-margin-top">
 <div class="max-w-7xl mx-auto px-6 lg:px-8">
 <h2 class="text-3xl font-light text-gray-900 mb-8 text-center border-b pb-4 inline-block border-accent-black uppercase tracking-widest">About Paul</h2>
@@ -300,7 +299,7 @@ Paul’s memoir, <span class="font-bold">Johnny’s Cloud</span>, is a delightfu
 <p class="mt-4 text-center text-sm font-semibold">The book is available wherever fine literature is spurned.</p>
 <!-- Corrected hyperlink structure and added text-center for centering -->
 <p class="text-center">
-    <a href="https://en.wikipedia.org/wiki/Memoir" class="accent-black hover:text-gray-700 underline font-bold" target="_blank">Get your memoir now!</a>
+    <a href="https://en.wikipedia.org/wiki/Memoir" class="accent-black hover:text-gray-700 underline font-bold" target="_blank">Get your memoir now!</a>
 </p>
 </div>
 </div>
@@ -308,11 +307,11 @@ Paul’s memoir, <span class="font-bold">Johnny’s Cloud</span>, is a delightfu
 </div>
 </section>
 
-<!-- Reduced spacing: py-8 md:py-12 -->
+<!-- Sections now use consistent vertical padding (py-8 md:py-12) and the custom scroll-margin-top class -->
 <section id="gallery" class="py-8 md:py-12 bg-white scroll-margin-top">
 <div class="max-w-7xl mx-auto px-6 lg:px-8">
 <!-- Accent color and border color change -->
-<h2 class="text-3xl font-light text-gray-900 mb-8 text-center border-b pb-4 inline-block border-accent-black uppercase tracking-widest">Video Gallery & Featured Work </h2>
+<h2 class="text-3xl font-light text-gray-900 mb-8 text-center border-b pb-4 inline-block border-accent-black uppercase tracking-widest">Video Gallery & Featured Work </h2>
 <div id="video-gallery-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
 <!-- Accent color and border color change -->
 <h2 class="text-3xl font-light text-gray-900 mt-12 mb-8 text-center border-b pb-4 inline-block border-accent-black uppercase tracking-widest">Humor and Rarities</h2>
@@ -323,7 +322,7 @@ Paul’s memoir, <span class="font-bold">Johnny’s Cloud</span>, is a delightfu
 </div>
 </section>
 
-<!-- Reduced spacing: py-8 md:py-12 -->
+<!-- Sections now use consistent vertical padding (py-8 md:py-12) and the custom scroll-margin-top class -->
 <section id="songsaviors" class="py-8 md:py-12 tush-bg scroll-margin-top">
 <div class="max-w-4xl mx-auto px-6 text-center">
 <!-- Accent color change -->
@@ -371,7 +370,7 @@ Come in and try it today!
 </div>
 </section>
 
-<!-- Reduced spacing: py-8 md:py-12 -->
+<!-- Sections now use consistent vertical padding (py-8 md:py-12) and the custom scroll-margin-top class -->
 <section id="team" class="py-8 md:py-12 bg-gray-50 scroll-margin-top">
 <div class="max-w-7xl mx-auto px-6 lg:px-8">
 <!-- Accent color and border color change -->
@@ -411,6 +410,7 @@ Oscar turned up on our yard one day and liked the chow so much he decided to sta
 </div>
 </section>
 
+<!-- Sections now use consistent vertical padding (py-8 md:py-12) and the custom scroll-margin-top class -->
 <!-- Contact section updated: Removed form, added direct email instructions -->
 <section id="contact" class="py-8 md:py-12 bg-gray-50 text-gray-900 scroll-margin-top">
 <div class="max-w-4xl mx-auto px-6">
