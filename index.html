@@ -4,14 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PY Songs International / Song Saviors Ltd. - Hit Songwriting & Screenwriting</title>
+<!-- SEO IMPROVEMENTS START -->
+<!-- Descriptive Meta Tags for Search Engines -->
 <meta name="description" content="Official website for PY Songs International and Song Saviors Ltd., offering hit-quality songwriting, screenplays, and surgical song repair services by Paul Yalen, a celebrated songwriter and filmmaker.">
 <meta name="keywords" content="Paul Yalen, PY Songs International, Song Saviors Ltd, songwriting, screenwriter, film scores, Broadway songs, music repair, Secret Pain, Prep Boys">
 
+<!-- Open Graph / Social Media Tags (For richer shares on platforms like Facebook and LinkedIn) -->
 <meta property="og:title" content="PY Songs International / Song Saviors Ltd.">
 <meta property="og:description" content="Creating hit-quality songs for Broadway, film, TV, and more. Songwriting and Screenwriting services by Paul Yalen.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.paulyalen.net">
-<meta property="og:image" content="https://raw.githubusercontent.com/benhasglasses/yalen/refs/heads/main/images/logo-placeholder.png"> <script type="application/ld+json">
+<meta property="og:image" content="https://raw.githubusercontent.com/benhasglasses/yalen/refs/heads/main/images/logo-placeholder.png"> <!-- Add a link to a high-quality logo/preview image -->
+
+<!-- JSON-LD Structured Data (Schema.org) for better search indexing of the business -->
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Organization",
@@ -26,6 +32,8 @@
   }
 }
 </script>
+<!-- SEO IMPROVEMENTS END -->
+
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 <style>
@@ -40,10 +48,8 @@ body{font-family:'Inter',sans-serif;background-color:#ffffff;color:#1f2937;scrol
 .nav-link:hover{color:#4b5563;text-decoration:none} /* Gray 600 for hover */
 .tush-bg{background-color:#ffffff;color:#1f2937}
 
-/* CRUCIAL FIX: Increased scroll-margin-top to a safer 200px to reliably clear the fixed header on all screen sizes, especially mobile where the header is taller. */
-.scroll-margin-top {
-    scroll-margin-top: 600px; /* Increased from 180px to safely clear the fixed header */
-}
+/* CRUCIAL FIX: Removing scroll-margin-top class as we are using the Spacer Method */
+/* The scroll-margin-top class and style block are removed/commented out here. */
 
 /* Video Thumbnail Styling */
 .video-thumbnail-container{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;max-width:100%;cursor:pointer;border-radius:0.75rem}
@@ -70,7 +76,7 @@ body{font-family:'Inter',sans-serif;background-color:#ffffff;color:#1f2937;scrol
 @media (max-width:640px){.dvd-case-container{width:120px}}
 </style>
 <script>
-// --- Video Data Definitions (unchanged) ---
+// --- Video Data Definitions ---
 const featuredVideoData = [
     {title:"Allies",embedUrl:"https://www.youtube.com/embed/36gtyc_Mq6g",videoId:"36gtyc_Mq6g"},
     {title:"Secret Pain | Music Video",embedUrl:"https://www.youtube.com/embed/i8Ihmrn58IE",videoId:"i8Ihmrn58IE"},
@@ -78,7 +84,8 @@ const featuredVideoData = [
     {title:"Man of Glass",embedUrl:"https://www.youtube.com/embed/i1TVhcETwjo",videoId:"i1TVhcETwjo"},
     {title:"Angel with a Candle",embedUrl:"https://www.youtube.com/embed/whZTlSOmhlo",videoId:"whZTlSOmhlo"},
     {title:"Backward Glance",embedUrl:"https://www.youtube.com/embed/xu96IKxlnLI",videoId:"xu96IKxlnLI"},
-    {title:"Stenger",embedUrl:"https://www.youtube.com/embed/ZFktQwJlL50",videoId:"ZFktQwJlL50"}
+    // UPDATED STENGER LINK HERE
+    {title:"Stenger",embedUrl:"https://www.youtube.com/embed/IhEOauGEiQQ",videoId:"IhEOauGEiQQ"}
 ];
 const humorVideoData = [
     {title:"Noise Damage",embedUrl:"https://www.youtube.com/embed/ZO3c5gshfEQ",videoId:"ZO3c5gshfEQ"},
@@ -154,7 +161,8 @@ function closeLightbox() {
 
 document.addEventListener('DOMContentLoaded', () => {
     // Video Gallery initialization
-    renderVideoGallery('video-gallery-container', ['36gtyc_Mq6g', 'i8Ihmrn58IE', 'aUu4pIqz4EY', 'i1TVhcETwjo', 'whZTlSOmhlo', 'xu96IKxlnLI', 'ZFktQwJlL50'], featuredVideoData);
+    // Note: The initialization below must use the new video ID: 'IhEOauGEiQQ'
+    renderVideoGallery('video-gallery-container', ['36gtyc_Mq6g', 'i8Ihmrn58IE', 'aUu4pIqz4EY', 'i1TVhcETwjo', 'whZTlSOmhlo', 'xu96IKxlnLI', 'IhEOauGEiQQ'], featuredVideoData);
     renderVideoGallery('humor-gallery-container', ['ZO3c5gshfEQ','vsXkJKXMx7k','ZtJDutXVWsE','u6j8HaIbLbI'], humorVideoData);
     renderVideoGallery('public-service-gallery-container', ['TtfR-Uv_YjA','cQZ547663-U'], publicServiceVideoData);
     
@@ -180,6 +188,7 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 </head>
 <body>
+<!-- FIXED HEADER (used Tailwind classes for positioning) -->
 <header class="bg-gray-900 text-white shadow-lg fixed w-full top-0 z-50">
 <div class="max-w-7xl mx-auto px-6 lg:px-8 py-4 flex flex-col md:flex-row justify-between items-center">
 <div class="text-2xl font-extrabold tracking-widest mb-2 md:mb-0">
@@ -190,14 +199,18 @@ document.addEventListener('DOMContentLoaded', () => {
 <a href="#gallery" class="nav-link">Video Gallery</a>
 <a href="#songsaviors" class="nav-link">Song Saviors</a>
 <a href="#team" class="nav-link">Team</a>
+<!-- Contact link re-added -->
 <a href="#contact" class="nav-link bg-accent-black text-white px-4 py-2 rounded-full hover:bg-gray-700 transition">Contact</a>
 </nav>
 </div>
 </header>
 
-<section id="home" class="pt-44 pb-6 md:pb-8 bg-white text-center scroll-margin-top">
+<!-- HOME SECTION: Anchor ID now inside a spacer div. -->
+<section class="pb-6 md:pb-8 bg-white text-center">
+    <div id="home" class="pt-44 md:pt-24"></div> <!-- Manual Anchor Spacer -->
 <div class="max-w-7xl mx-auto px-6">
 <h1 class="text-4xl sm:text-6xl font-light text-gray-900 mb-6 tracking-tight">
+<!-- Accent color change -->
 Welcome to <span class="accent-black font-semibold">PY Songs International</span> / Song Saviors Ltd.
 </h1>
 <p class="text-xl sm:text-3xl font-light text-gray-500 mb-16">
@@ -213,10 +226,12 @@ Creating hit-quality songs for Broadway, film, TV and more.
 </div>
 <div class="space-y-6">
 
+<!-- Accent color and border color change -->
 <div class="mt-8 p-8 bg-gray-100 rounded-xl shadow-inner border-l-4 border-accent-black">
 <p class="text-xl font-bold mb-4">
 If you’re relentlessly serious about catapulting your project into the upper stratosphere and beyond, we’re here to help.
 </p>
+<!-- Accent color change -->
 <p class="text-3xl font-extrabold accent-black">Just Call Paul.</p>
 </div>
 <div class="mt-8 p-6 bg-white border rounded-xl shadow-md">
@@ -230,14 +245,17 @@ If you’re relentlessly serious about catapulting your project into the upper s
 </div>
 </section>
 
-<section id="about" class="py-8 md:py-12 bg-gray-50 scroll-margin-top">
-<div class="max-w-7xl mx-auto px-6 lg:px-8">
+<!-- ABOUT SECTION: Anchor ID now inside a spacer div. -->
+<section class="py-8 md:py-12 bg-gray-50">
+    <div id="about" class="pt-44 md:pt-24"></div> <!-- Manual Anchor Spacer -->
+<div class="max-w-7xl mx-auto px-6 lg:px-8 -mt-44 md:-mt-24"> <!-- Negative margin to pull content back up -->
 <h2 class="text-3xl font-light text-gray-900 mb-8 text-center border-b pb-4 inline-block border-accent-black uppercase tracking-widest">About Paul</h2>
 <div class="grid md:grid-cols-5 gap-8 items-start">
 <div class="md:col-span-3 space-y-6">
 <p class="text-lg leading-relaxed">
 <span class="font-bold">Paul Yalen</span> is an American songwriter, screenwriter, director and former performer. First signed in his 20s by Beatles promoter Sid Bernstein, Paul has subsequently created a catalog of over 200 hit-caliber songs.
 </p>
+<!-- Accent color and border color change -->
 <h3 class="text-xl font-semibold text-gray-700 border-l-4 pl-4 border-accent-black">Celebrity Collaborators</h3>
 <ul class="list-disc list-inside space-y-2 ml-4 text-base">
 <li>Country singer Kenny Rogers</li>
@@ -247,6 +265,7 @@ If you’re relentlessly serious about catapulting your project into the upper s
 <li>Jazz diva Amanda Carr</li>
 <li>Actress Eliza Dushku</li>
 </ul>
+<!-- Accent color and border color change -->
 <h3 class="text-xl font-semibold text-gray-700 border-l-4 pl-4 border-accent-black">Screenplays & Films by Paul</h3>
 <ul class="list-disc list-inside space-y-2 ml-4 text-base">
 <li>The Children's Coloring Book of Revenge</li>
@@ -270,6 +289,7 @@ class="rounded-xl shadow-xl w-full h-auto object-cover">
 <p class="mt-2 text-sm text-gray-500">Paul and cast of the "Backward Glance" music video.</p>
 </div>
 <div class="p-6 bg-white rounded-xl shadow-lg border border-gray-100">
+<!-- Accent color change -->
 <h3 class="text-xl font-extrabold text-gray-900 mb-4 accent-black">MEMOIR</h3>
 <img src="https://raw.githubusercontent.com/benhasglasses/yalen/refs/heads/main/images/books.png"
 alt="Book bookends placeholder"
@@ -277,7 +297,9 @@ class="w-1/2 mx-auto h-auto mb-4 rounded-lg">
 <p class="text-base italic font-serif leading-relaxed text-gray-600">
 Paul’s memoir, <span class="font-bold">Johnny’s Cloud</span>, is a delightfully bittersweet chronicle of his adventures as a struggling young songwriter trying to make his mark in the savagely competitive music industry.
 </p>
+<!-- Accent color change -->
 <p class="mt-4 text-center text-sm font-semibold">The book is available wherever fine literature is spurned.</p>
+<!-- Corrected hyperlink structure and added text-center for centering -->
 <p class="text-center">
     <a href="https://en.wikipedia.org/wiki/Memoir" class="accent-black hover:text-gray-700 underline font-bold" target="_blank">Get your memoir now!</a>
 </p>
@@ -287,23 +309,32 @@ Paul’s memoir, <span class="font-bold">Johnny’s Cloud</span>, is a delightfu
 </div>
 </section>
 
-<section id="gallery" class="py-8 md:py-12 bg-white scroll-margin-top">
-<div class="max-w-7xl mx-auto px-6 lg:px-8">
+<!-- GALLERY SECTION: Anchor ID now inside a spacer div. -->
+<section class="py-8 md:py-12 bg-white">
+    <div id="gallery" class="pt-44 md:pt-24"></div> <!-- Manual Anchor Spacer -->
+<div class="max-w-7xl mx-auto px-6 lg:px-8 -mt-44 md:-mt-24"> <!-- Negative margin to pull content back up -->
+<!-- Accent color and border color change -->
 <h2 class="text-3xl font-light text-gray-900 mb-8 text-center border-b pb-4 inline-block border-accent-black uppercase tracking-widest">Video Gallery & Featured Work </h2>
 <div id="video-gallery-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+<!-- Accent color and border color change -->
 <h2 class="text-3xl font-light text-gray-900 mt-12 mb-8 text-center border-b pb-4 inline-block border-accent-black uppercase tracking-widest">Humor and Rarities</h2>
 <div id="humor-gallery-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+<!-- Accent color and border color change -->
 <h2 class="text-3xl font-light text-gray-900 mt-12 mb-8 text-center border-b pb-4 inline-block border-accent-black uppercase tracking-widest">Public Service</h2>
 <div id="public-service-gallery-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
 </div>
 </section>
 
-<section id="songsaviors" class="py-8 md:py-12 tush-bg scroll-margin-top">
-<div class="max-w-4xl mx-auto px-6 text-center">
+<!-- SONG SAVIORS SECTION: Anchor ID now inside a spacer div. -->
+<section class="py-8 md:py-12 tush-bg">
+    <div id="songsaviors" class="pt-44 md:pt-24"></div> <!-- Manual Anchor Spacer -->
+<div class="max-w-4xl mx-auto px-6 text-center -mt-44 md:-mt-24"> <!-- Negative margin to pull content back up -->
+<!-- Accent color change -->
 <h2 class="text-3xl font-light mb-4 accent-black uppercase tracking-widest">Song Saviors Ltd.</h2>
 <p class="text-lg font-light mb-8 text-gray-500">
 READY TO HAVE YOUR WEAK SONG REPAIRED BUT FEARFUL OF THE PROCESS?
 </p>
+<!-- Accent color and border color change (using gray-900 for border) -->
 <div class="p-8 bg-gray-100 rounded-2xl shadow-2xl border border-gray-900">
 <h3 class="text-2xl font-bold mb-4 text-gray-700 tracking-wider">
 RELAX! HERE’S HOW IT WORKS:
@@ -311,23 +342,29 @@ RELAX! HERE’S HOW IT WORKS:
 <p class="text-base leading-relaxed mb-6 text-gray-700">
 PY Songs International and Song Saviors Ltd. are dedicated to relieving the extreme anxiety experienced by many of our composer clients who arrive at our clinic to have their ailing songs surgically made over.
 </p>
+<!-- TUSH color changed from text-red-600 to accent-black -->
 <p class="text-xl font-extrabold mb-6 accent-black">
 Our concept is based on recognizing and taking steps to reduce the <span class="underline">Terror, Utter Disgust, Stress and Horror</span> (hereafter referred to as <span class="accent-black">TUSH</span>) associated with a composer's visit to a song doctor.
 </p>
 <div class="grid md:grid-cols-2 gap-6 mt-6 text-left text-gray-700">
 <div>
+<!-- Accent color change -->
 <h4 class="text-lg font-semibold mb-3 accent-black">Recognizing TUSH in a composer client:</h4>
 <p class="mb-4 text-sm">Common signs include: a tense face, snarling or growling. In severe cases, we may see crouched posture, hissing and ears pinned down to the side.</p>
+<!-- Accent color change -->
 <h4 class="text-lg font-semibold mb-3 accent-black">Stressors:</h4>
 <p class="text-sm">Examples include noise, odor, pain, erroneous repetition and odor. Our goal is to reduce such stress for optimal song treatment.</p>
 </div>
 <div>
+<!-- Accent color change -->
 <h4 class="text-lg font-semibold mb-3 accent-black">Reducing TUSH:</h4>
 <p class="mb-4 text-sm">The song doctor speaks in a calm, quiet voice. Rewards such as treats, toys, or petting are used during diagnostic exams.</p>
+<!-- Accent color change -->
 <h4 class="text-lg font-semibold mb-3 accent-black">Advanced Procedures:</h4>
 <p class="text-sm">For key changes or deleting a verse, a towel wrap, muzzle, or Elizabethan collar may be needed. Sedatives or calming pheromones are available.</p>
 </div>
 </div>
+<!-- Accent color change and border color change (using gray-900 for border) -->
 <div class="mt-8 pt-4 border-t border-gray-900">
 <p class="text-xl font-extrabold accent-black">
 Come in and try it today!
@@ -337,14 +374,18 @@ Come in and try it today!
 </div>
 </section>
 
-<section id="team" class="py-8 md:py-12 bg-gray-50 scroll-margin-top">
-<div class="max-w-7xl mx-auto px-6 lg:px-8">
+<!-- TEAM SECTION: Anchor ID now inside a spacer div. -->
+<section class="py-8 md:py-12 bg-gray-50">
+    <div id="team" class="pt-44 md:pt-24"></div> <!-- Manual Anchor Spacer -->
+<div class="max-w-7xl mx-auto px-6 lg:px-8 -mt-44 md:-mt-24"> <!-- Negative margin to pull content back up -->
+<!-- Accent color and border color change -->
 <h2 class="text-3xl font-light text-gray-900 mb-8 text-center border-b pb-4 inline-block border-accent-black uppercase tracking-widest">Meet Our Support Team</h2>
 <div class="grid lg:grid-cols-3 gap-8">
 <div class="p-6 rounded-xl shadow-lg bg-white border border-gray-100">
 <img src="https://raw.githubusercontent.com/benhasglasses/yalen/refs/heads/main/images/blur.png"
 alt="Penchant Furfors, blurred for security purposes"
 class="rounded-xl w-full h-auto object-cover mb-4 shadow-md">
+<!-- Accent color change -->
 <h3 class="text-xl font-bold text-gray-900">Penchant Furfors, <span class="accent-black">Security</span></h3>
 <p class="text-sm text-gray-500 mb-4 italic">Photo blurred for security purposes.</p>
 <p class="text-base leading-relaxed text-gray-700">
@@ -362,6 +403,7 @@ class="rounded-xl object-cover w-full h-full">
 alt="Oscar the cat, Quality Control"
 class="rounded-full w-24 h-24 object-cover flex-shrink-0 shadow-md">
 <div>
+<!-- Accent color change -->
 <h3 class="text-xl font-bold text-gray-900">Oscar, <span class="accent-black">Quality Control</span></h3>
 <p class="text-base leading-relaxed mt-2 text-gray-700">
 Oscar turned up on our yard one day and liked the chow so much he decided to stay. If Oscar hisses at a new PY song, we know to scrap it.
@@ -373,21 +415,27 @@ Oscar turned up on our yard one day and liked the chow so much he decided to sta
 </div>
 </section>
 
-<section id="contact" class="py-8 md:py-12 bg-gray-50 text-gray-900 scroll-margin-top">
-<div class="max-w-4xl mx-auto px-6">
+<!-- CONTACT SECTION: Anchor ID now inside a spacer div. -->
+<section class="py-8 md:py-12 bg-gray-50 text-gray-900">
+    <div id="contact" class="pt-44 md:pt-24"></div> <!-- Manual Anchor Spacer -->
+<div class="max-w-4xl mx-auto px-6 -mt-44 md:-mt-24"> <!-- Negative margin to pull content back up -->
+<!-- Accent color and border color change -->
 <h2 class="text-3xl font-light accent-black mb-8 text-center border-b pb-4 inline-block border-accent-black uppercase tracking-widest">FAQ & Contact</h2>
 <div class="grid md:grid-cols-2 gap-8">
 <div class="space-y-6">
 <div>
+<!-- Accent color change -->
 <p class="font-bold text-lg mb-1 accent-black">Why don’t you do social media like Twitter/X, Instagram, TikTok, Facebook?</p>
 <p class="text-gray-700 text-sm">We have found social media to be a generally negative force, with some exceptions. We prefer a more traditional approach. Most of our clients start out by using our contact form and thereafter maintain correspondence via email, phone and in person.</p>
 </div>
 <div>
+<!-- Accent color change -->
 <p class="font-bold text-lg mb-1 accent-black">What are your rates? How do we pay?</p>
 <p class="text-gray-700 text-sm">Every situation is different. Our terms are always reasonable and fair. Why not contact us to discuss your particular song or feature film needs?</p>
 </div>
 </div>
 <div class="bg-white p-6 rounded-xl shadow-2xl border border-gray-100 text-center">
+<!-- Accent color change -->
 <h3 class="text-xl font-semibold mb-6 accent-black">GET IN TOUCH</h3>
 <p class="text-lg mb-4 text-gray-700 leading-relaxed">
 If you are interested in getting in touch regarding a project or inquiry, please send a message to our dedicated email address.
