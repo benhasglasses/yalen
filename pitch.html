@@ -127,17 +127,6 @@
             <!-- Content Grid -->
             <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
                 
-                <!-- Pitch Deck -->
-                <div onclick="openGallery('pitch')" class="card-bg group hover:bg-white transition-all duration-500 p-1 rounded-2xl border border-color hover-border-color cursor-pointer shadow-sm hover:shadow-md">
-                    <div class="card-image-container h-48 bg-slate-200 rounded-xl mb-4 overflow-hidden">
-                        <img src="https://github.com/benhasglasses/yalen/blob/main/pitch/FirstTimePitchDeck_05.jpg?raw=true" alt="Pitch Deck Thumbnail" class="card-image w-full h-full object-cover">
-                    </div>
-                    <div class="px-4 pb-6">
-                        <h3 class="text-xl font-bold text-slate-900 mb-1 group-hover:highlight-text transition-colors">PITCH DECK</h3>
-                        <p class="text-sm text-slate-500">Production Information</p>
-                    </div>
-                </div>
-
                 <!-- Video Trailer -->
                 <div onclick="openVideo('3fndmo4Kc6g')" class="card-bg group hover:bg-white transition-all duration-500 p-1 rounded-2xl border border-color hover-border-color cursor-pointer shadow-sm hover:shadow-md">
                     <div class="card-image-container h-48 bg-slate-200 rounded-xl mb-4 overflow-hidden relative">
@@ -176,6 +165,17 @@
                     </div>
                 </div>
 
+                <!-- Pitch Deck -->
+                <div onclick="openGallery('pitch')" class="card-bg group hover:bg-white transition-all duration-500 p-1 rounded-2xl border border-color hover-border-color cursor-pointer shadow-sm hover:shadow-md">
+                    <div class="card-image-container h-48 bg-slate-200 rounded-xl mb-4 overflow-hidden">
+                        <img src="https://github.com/benhasglasses/yalen/blob/main/pitch/FirstTimePitchDeck_05.jpg?raw=true" alt="Pitch Deck Thumbnail" class="card-image w-full h-full object-cover">
+                    </div>
+                    <div class="px-4 pb-6">
+                        <h3 class="text-xl font-bold text-slate-900 mb-1 group-hover:highlight-text transition-colors">PITCH DECK</h3>
+                        <p class="text-sm text-slate-500">Production Information</p>
+                    </div>
+                </div>
+
                 <!-- Storyboards -->
                 <div onclick="openGallery('storyboard')" class="card-bg group hover:bg-white transition-all duration-500 p-1 rounded-2xl border border-color hover-border-color cursor-pointer shadow-sm hover:shadow-md">
                     <div class="card-image-container h-48 bg-slate-200 rounded-xl mb-4 overflow-hidden">
@@ -195,6 +195,7 @@
                     <span class="font-bold italic highlight-text text-xl">"First Time for Everything,"</span><br>
                     please contact us at:
                 </p>
+                
                 <div class="mb-12 space-y-2">
                     <h3 class="text-2xl font-bold text-slate-900">PY Songs International</h3>
                     <a href="mailto:PYSongsLtd@gmail.com" class="block text-lg text-slate-600 hover:text-yellow-600 transition-colors font-medium">PYSongsLtd@gmail.com</a>
@@ -207,7 +208,8 @@
                         We will be shooting in <span class="font-semibold text-slate-800">Vancouver, Canada</span>. 
                         Investors will be welcome to join us as our special guests on set and enjoy a personal conversation with our star, 
                         <span class="font-semibold text-slate-800">Dominic Lippa</span>, star of the popular 2022 indie feature film 
-                        <span class="italic">"Before I Change My Mind."</span>
+                        <!-- Added whitespace-nowrap to keep title on one line -->
+                        <span class="italic whitespace-nowrap">"Before I Change My Mind."</span>
                     </p>
                     <p class="mt-6 font-bold highlight-text text-lg">Thank you very much.</p>
                 </div>
@@ -291,6 +293,42 @@
         const galleryImage = document.getElementById('gallery-image');
         const imageCounter = document.getElementById('image-counter');
 
+        // --- EDITABLE STORYBOARD LINKS ---
+        // You can add, remove, or change these links manually here:
+        const storyboardLinks = [
+            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_00.jpg?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_01.jpg?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_02.jpg?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_03.jpg?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_04.jpg?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_05.jpg?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_06.jpg?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_07.jpg?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_08.jpg?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_09.jpg?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_10.jpg?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_11.jpg?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_12.jpg?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_13.jpg?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_14.jpg?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_15.jpg?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_16.jpg?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_17.jpg?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_18.jpg?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_19.jpg?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_20.jpg?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_21.jpg?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_22.jpg?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_23.jpg?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_24.jpg?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_25.jpg?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_26.jpg?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_27.jpg?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_28.jpg?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_29.jpg?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_30.jpg?raw=true"
+        ];
+
         // Image Data
         let galleryImages = [];
         let currentImageIndex = 0;
@@ -325,11 +363,8 @@
                 }
             } else if (type === 'storyboard') {
                 galleryTypeLabel = "CONCEPT ART";
-                const baseUrl = "https://github.com/benhasglasses/yalen/blob/main/gallery/FTFE_";
-                for (let i = 1; i <= 28; i++) {
-                    const num = i.toString().padStart(2, '0');
-                    galleryImages.push(`${baseUrl}${num}.jpg?raw=true`);
-                }
+                // Uses the array defined above so links can be changed easily
+                galleryImages = [...storyboardLinks];
             }
 
             modal.classList.remove('hidden');
