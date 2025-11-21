@@ -363,7 +363,8 @@
             imageContainer.classList.add('hidden');
             
             // Set Youtube Source
-            youtubeFrame.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+            // CHANGED: Used youtube-nocookie.com and added modestbranding=1 for a cleaner player
+            youtubeFrame.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`;
             document.body.classList.add('lightbox-open');
         }
 
