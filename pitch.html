@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>First Time for Everything - Investor Access</title>
+    
+    <!-- OPTIMIZATION: Preconnect to external domains to speed up connection time -->
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://github.com">
+    <link rel="preconnect" href="https://raw.githubusercontent.com">
+    <link rel="preconnect" href="https://img.youtube.com">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -143,10 +152,10 @@
                 <!-- Video Trailer -->
                 <div onclick="openVideo('3fndmo4Kc6g')" class="card-bg group hover:bg-white transition-all duration-500 p-1 rounded-2xl border border-color hover-border-color cursor-pointer shadow-sm hover:shadow-md">
                     <div class="card-image-container h-48 bg-slate-200 rounded-xl mb-2 overflow-hidden relative">
-                        <img src="https://img.youtube.com/vi/3fndmo4Kc6g/maxresdefault.jpg" alt="Trailer Thumbnail" class="card-image w-full h-full object-cover">
+                        <!-- OPTIMIZATION: Added fetchpriority="high" -->
+                        <img src="https://img.youtube.com/vi/3fndmo4Kc6g/maxresdefault.jpg" alt="Trailer Thumbnail" class="card-image w-full h-full object-cover" fetchpriority="high">
                         <!-- Play Icon Overlay -->
                         <div class="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/10 transition-colors">
-                            <!-- CHANGED: Made bg more transparent (bg-white/20) and icon transparent white (text-white/40) -->
                             <div class="bg-white/20 p-3 rounded-full shadow-sm backdrop-blur-sm">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white/40 ml-1" viewBox="0 0 20 20" fill="currentColor">
                                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
@@ -155,7 +164,6 @@
                         </div>
                     </div>
                     <div class="px-4 pb-3">
-                        <!-- CHANGED: Replaced text-slate-900 with highlight-text -->
                         <h3 class="text-xl font-bold highlight-text mb-1 transition-colors">VIDEO TRAILER</h3>
                         <p class="text-sm text-slate-500">Trailer</p>
                     </div>
@@ -164,10 +172,10 @@
                 <!-- Star Intro -->
                 <div onclick="openVideo('YjTJRQGyHcQ')" class="card-bg group hover:bg-white transition-all duration-500 p-1 rounded-2xl border border-color hover-border-color cursor-pointer shadow-sm hover:shadow-md">
                     <div class="card-image-container h-48 bg-slate-200 rounded-xl mb-2 overflow-hidden relative">
-                        <img src="https://img.youtube.com/vi/YjTJRQGyHcQ/maxresdefault.jpg" alt="Star Intro Thumbnail" class="card-image w-full h-full object-cover object-top">
+                        <!-- OPTIMIZATION: Added fetchpriority="high" -->
+                        <img src="https://img.youtube.com/vi/YjTJRQGyHcQ/maxresdefault.jpg" alt="Star Intro Thumbnail" class="card-image w-full h-full object-cover object-top" fetchpriority="high">
                          <!-- Play Icon Overlay -->
                          <div class="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/10 transition-colors">
-                            <!-- CHANGED: Made bg more transparent (bg-white/20) and icon transparent white (text-white/40) -->
                             <div class="bg-white/20 p-3 rounded-full shadow-sm backdrop-blur-sm">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white/40 ml-1" viewBox="0 0 20 20" fill="currentColor">
                                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
@@ -176,8 +184,7 @@
                         </div>
                     </div>
                     <div class="px-4 pb-3">
-                        <!-- CHANGED: Replaced text-slate-900 with highlight-text -->
-                        <h3 class="text-xl font-bold highlight-text mb-1 transition-colors">STAR INTRODUCTION</h3>
+                        <h3 class="text-xl font-bold text-slate-900 mb-1 transition-colors">STAR INTRODUCTION</h3>
                         <p class="text-sm text-slate-500">Personal message from the lead</p>
                     </div>
                 </div>
@@ -185,11 +192,11 @@
                 <!-- Pitch Deck -->
                 <div onclick="openGallery('pitch')" class="card-bg group hover:bg-white transition-all duration-500 p-1 rounded-2xl border border-color hover-border-color cursor-pointer shadow-sm hover:shadow-md">
                     <div class="card-image-container h-48 bg-slate-200 rounded-xl mb-2 overflow-hidden">
-                        <!-- CHANGED: .jpg to .webp -->
-                        <img src="https://github.com/benhasglasses/yalen/blob/main/thumbs/logline_thumb.webp?raw=true" alt="Pitch Deck Thumbnail" class="card-image w-full h-full object-cover">
+                        <!-- OPTIMIZATION: Added fetchpriority="high" -->
+                        <img src="https://github.com/benhasglasses/yalen/blob/main/thumbs/logline_thumb.webp?raw=true" alt="Pitch Deck Thumbnail" class="card-image w-full h-full object-cover" fetchpriority="high">
                     </div>
                     <div class="px-4 pb-3">
-                        <h3 class="text-xl font-bold highlight-text mb-1 transition-colors">PITCH DECK</h3>
+                        <h3 class="text-xl font-bold text-slate-900 mb-1 transition-colors">PITCH DECK</h3>
                         <p class="text-sm text-slate-500">Production Information</p>
                     </div>
                 </div>
@@ -197,11 +204,11 @@
                 <!-- Storyboards -->
                 <div onclick="openGallery('storyboard')" class="card-bg group hover:bg-white transition-all duration-500 p-1 rounded-2xl border border-color hover-border-color cursor-pointer shadow-sm hover:shadow-md">
                     <div class="card-image-container h-48 bg-slate-200 rounded-xl mb-2 overflow-hidden">
-                        <!-- CHANGED: .jpg to .webp -->
-                        <img src="https://github.com/benhasglasses/yalen/blob/main/thumbs/carousel_thumb.webp?raw=true" alt="Storyboards Thumbnail" class="card-image w-full h-full object-cover">
+                        <!-- OPTIMIZATION: Added fetchpriority="high" -->
+                        <img src="https://github.com/benhasglasses/yalen/blob/main/thumbs/carousel_thumb.webp?raw=true" alt="Storyboards Thumbnail" class="card-image w-full h-full object-cover" fetchpriority="high">
                     </div>
                     <div class="px-4 pb-3">
-                        <h3 class="text-xl font-bold highlight-text mb-1 transition-colors">STORYBOARDS GALLERY</h3>
+                        <h3 class="text-xl font-bold text-slate-900 mb-1 transition-colors">STORYBOARDS GALLERY</h3>
                         <p class="text-sm text-slate-500">Concept Art</p>
                     </div>
                 </div>
@@ -294,6 +301,9 @@
                 protectedContent.classList.remove('hidden');
                 document.body.style.alignItems = 'start';
                 document.body.classList.add('pt-10');
+                
+                // OPTIMIZATION: Start background preloading as soon as user logs in
+                prefetchContent();
             } else {
                 errorMessage.classList.remove('hidden');
                 input.classList.add('border-red-500', 'focus:ring-red-500');
@@ -317,9 +327,7 @@
         const imageCounter = document.getElementById('image-counter');
         const galleryLoader = document.getElementById('gallery-loader');
 
-        // --- EDITABLE STORYBOARD LINKS ---
-        // You can add, remove, or change these links manually here:
-        // CHANGED: All extensions from .jpg to .webp
+        // --- DATA DEFINITIONS ---
         const storyboardLinks = [
             "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_00.webp?raw=true",
             "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_01.webp?raw=true",
@@ -354,14 +362,37 @@
             "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_30.webp?raw=true"
         ];
 
+        // Generate Pitch Links
+        const pitchDeckBaseUrl = "https://github.com/benhasglasses/yalen/blob/main/pitch/FirstTimePitchDeck_";
+        const pitchLinks = [];
+        for (let i = 1; i <= 15; i++) {
+            const num = i.toString().padStart(2, '0');
+            pitchLinks.push(`${pitchDeckBaseUrl}${num}.webp?raw=true`);
+        }
+
         // Image Data
         let galleryImages = [];
         let currentImageIndex = 0;
-        let galleryTypeLabel = "GALLERY"; // Dynamic label
+        let galleryTypeLabel = "GALLERY";
+
+        // --- OPTIMIZATION: Background Prefetch ---
+        // Loads the first few images of each gallery silently so they are ready instantly
+        function prefetchContent() {
+            // Helper to load image
+            const loadImg = (url) => {
+                const img = new Image();
+                img.src = url;
+            };
+
+            // Load first 3 images of Pitch Deck
+            pitchLinks.slice(0, 3).forEach(url => loadImg(url));
+
+            // Load first 3 images of Storyboards
+            storyboardLinks.slice(0, 3).forEach(url => loadImg(url));
+        }
 
         function openVideo(videoId) {
             modal.classList.remove('hidden');
-            // Small timeout to allow display:block to apply before opacity transition
             setTimeout(() => {
                 modal.classList.remove('opacity-0');
             }, 10);
@@ -369,28 +400,19 @@
             videoContainer.classList.remove('hidden');
             imageContainer.classList.add('hidden');
             
-            // Set Youtube Source
-            // CHANGED: Used youtube-nocookie.com and added modestbranding=1 for a cleaner player
             youtubeFrame.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`;
             document.body.classList.add('lightbox-open');
         }
 
         function openGallery(type) {
-            // Reset and populate gallery based on type
             galleryImages = [];
             currentImageIndex = 0;
 
             if (type === 'pitch') {
                 galleryTypeLabel = "PITCH DECK";
-                const baseUrl = "https://github.com/benhasglasses/yalen/blob/main/pitch/FirstTimePitchDeck_";
-                for (let i = 1; i <= 15; i++) {
-                    const num = i.toString().padStart(2, '0');
-                    // CHANGED: .jpg to .webp
-                    galleryImages.push(`${baseUrl}${num}.webp?raw=true`);
-                }
+                galleryImages = [...pitchLinks];
             } else if (type === 'storyboard') {
                 galleryTypeLabel = "CONCEPT ART";
-                // Uses the array defined above so links can be changed easily
                 galleryImages = [...storyboardLinks];
             }
 
@@ -407,11 +429,9 @@
         }
 
         function updateGalleryImage() {
-            // Show Loader and fade out current image
             galleryLoader.classList.remove('hidden');
             galleryImage.classList.add('opacity-50');
             
-            // Setup one-time load listeners
             galleryImage.onload = () => {
                 galleryLoader.classList.add('hidden');
                 galleryImage.classList.remove('opacity-50');
@@ -420,17 +440,17 @@
             galleryImage.onerror = () => {
                 galleryLoader.classList.add('hidden');
                 galleryImage.classList.remove('opacity-50');
-                // Optional: alert("Image failed to load");
             };
 
-            // Change Source
             galleryImage.src = galleryImages[currentImageIndex];
             imageCounter.textContent = `${currentImageIndex + 1} / ${galleryImages.length} • ${galleryTypeLabel}`;
             
-            // PRELOADER: Start fetching the next image in background
-            const nextIndex = (currentImageIndex + 1) % galleryImages.length;
-            const preloadImg = new Image();
-            preloadImg.src = galleryImages[nextIndex];
+            // PRELOADER: Aggressively fetch next 2 images
+            for (let i = 1; i <= 2; i++) {
+                const nextIndex = (currentImageIndex + i) % galleryImages.length;
+                const preloadImg = new Image();
+                preloadImg.src = galleryImages[nextIndex];
+            }
         }
 
         function nextImage() {
@@ -447,13 +467,11 @@
             modal.classList.add('opacity-0');
             setTimeout(() => {
                 modal.classList.add('hidden');
-                // Stop video playback by resetting src
                 youtubeFrame.src = "";
                 document.body.classList.remove('lightbox-open');
             }, 300);
         }
         
-        // Keyboard navigation
         document.addEventListener('keydown', function(event) {
             if (modal.classList.contains('hidden')) return;
             
