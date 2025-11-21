@@ -185,10 +185,10 @@
                 <!-- Pitch Deck -->
                 <div onclick="openGallery('pitch')" class="card-bg group hover:bg-white transition-all duration-500 p-1 rounded-2xl border border-color hover-border-color cursor-pointer shadow-sm hover:shadow-md">
                     <div class="card-image-container h-48 bg-slate-200 rounded-xl mb-2 overflow-hidden">
-                        <img src="https://github.com/benhasglasses/yalen/blob/main/thumbs/logline_thumb.jpg?raw=true" alt="Pitch Deck Thumbnail" class="card-image w-full h-full object-cover">
+                        <!-- CHANGED: .jpg to .webp -->
+                        <img src="https://github.com/benhasglasses/yalen/blob/main/thumbs/logline_thumb.webp?raw=true" alt="Pitch Deck Thumbnail" class="card-image w-full h-full object-cover">
                     </div>
                     <div class="px-4 pb-3">
-                        <!-- CHANGED: Replaced text-slate-900 with highlight-text -->
                         <h3 class="text-xl font-bold highlight-text mb-1 transition-colors">PITCH DECK</h3>
                         <p class="text-sm text-slate-500">Production Information</p>
                     </div>
@@ -197,10 +197,10 @@
                 <!-- Storyboards -->
                 <div onclick="openGallery('storyboard')" class="card-bg group hover:bg-white transition-all duration-500 p-1 rounded-2xl border border-color hover-border-color cursor-pointer shadow-sm hover:shadow-md">
                     <div class="card-image-container h-48 bg-slate-200 rounded-xl mb-2 overflow-hidden">
-                        <img src="https://github.com/benhasglasses/yalen/blob/main/thumbs/carousel_thumb.jpg?raw=true" alt="Storyboards Thumbnail" class="card-image w-full h-full object-cover">
+                        <!-- CHANGED: .jpg to .webp -->
+                        <img src="https://github.com/benhasglasses/yalen/blob/main/thumbs/carousel_thumb.webp?raw=true" alt="Storyboards Thumbnail" class="card-image w-full h-full object-cover">
                     </div>
                     <div class="px-4 pb-3">
-                        <!-- CHANGED: Replaced text-slate-900 with highlight-text -->
                         <h3 class="text-xl font-bold highlight-text mb-1 transition-colors">STORYBOARDS GALLERY</h3>
                         <p class="text-sm text-slate-500">Concept Art</p>
                     </div>
@@ -319,38 +319,39 @@
 
         // --- EDITABLE STORYBOARD LINKS ---
         // You can add, remove, or change these links manually here:
+        // CHANGED: All extensions from .jpg to .webp
         const storyboardLinks = [
-            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_00.jpg?raw=true",
-            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_01.jpg?raw=true",
-            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_02.jpg?raw=true",
-            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_03.jpg?raw=true",
-            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_04.jpg?raw=true",
-            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_05.jpg?raw=true",
-            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_06.jpg?raw=true",
-            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_07.jpg?raw=true",
-            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_08.jpg?raw=true",
-            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_09.jpg?raw=true",
-            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_10.jpg?raw=true",
-            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_11.jpg?raw=true",
-            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_12.jpg?raw=true",
-            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_13.jpg?raw=true",
-            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_14.jpg?raw=true",
-            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_15.jpg?raw=true",
-            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_16.jpg?raw=true",
-            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_17.jpg?raw=true",
-            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_18.jpg?raw=true",
-            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_19.jpg?raw=true",
-            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_20.jpg?raw=true",
-            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_21.jpg?raw=true",
-            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_22.jpg?raw=true",
-            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_23.jpg?raw=true",
-            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_24.jpg?raw=true",
-            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_25.jpg?raw=true",
-            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_26.jpg?raw=true",
-            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_27.jpg?raw=true",
-            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_28.jpg?raw=true",
-            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_29.jpg?raw=true",
-            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_30.jpg?raw=true"
+            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_00.webp?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_01.webp?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_02.webp?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_03.webp?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_04.webp?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_05.webp?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_06.webp?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_07.webp?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_08.webp?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_09.webp?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_10.webp?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_11.webp?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_12.webp?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_13.webp?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_14.webp?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_15.webp?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_16.webp?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_17.webp?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_18.webp?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_19.webp?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_20.webp?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_21.webp?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_22.webp?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_23.webp?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_24.webp?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_25.webp?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_26.webp?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_27.webp?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_28.webp?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_29.webp?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_30.webp?raw=true"
         ];
 
         // Image Data
@@ -384,7 +385,8 @@
                 const baseUrl = "https://github.com/benhasglasses/yalen/blob/main/pitch/FirstTimePitchDeck_";
                 for (let i = 1; i <= 15; i++) {
                     const num = i.toString().padStart(2, '0');
-                    galleryImages.push(`${baseUrl}${num}.jpg?raw=true`);
+                    // CHANGED: .jpg to .webp
+                    galleryImages.push(`${baseUrl}${num}.webp?raw=true`);
                 }
             } else if (type === 'storyboard') {
                 galleryTypeLabel = "CONCEPT ART";
