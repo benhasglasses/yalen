@@ -258,6 +258,14 @@
                 <iframe id="youtube-frame" class="w-full h-full" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
 
+            <!-- Disclaimer Text (Only for Trailer) -->
+            <div id="video-disclaimer" class="hidden mt-4 text-center fade-in">
+                <p class="text-white/60 text-sm font-light italic tracking-wide max-w-2xl mx-auto">
+                    Note: This concept trailer utilizes AI for visualization purposes. <br class="hidden md:block">
+                    The final feature film will be shot using traditional live-action techniques.
+                </p>
+            </div>
+
             <!-- Image/Gallery Container -->
             <div id="image-container" class="hidden flex flex-col items-center">
                 <div class="relative">
@@ -321,6 +329,7 @@
         // --- Lightbox Logic ---
         const modal = document.getElementById('media-modal');
         const videoContainer = document.getElementById('video-container');
+        const videoDisclaimer = document.getElementById('video-disclaimer'); // NEW
         const imageContainer = document.getElementById('image-container');
         const youtubeFrame = document.getElementById('youtube-frame');
         const galleryImage = document.getElementById('gallery-image');
@@ -400,6 +409,13 @@
             videoContainer.classList.remove('hidden');
             imageContainer.classList.add('hidden');
             
+            // LOGIC: Show disclaimer ONLY for the main trailer (ID: 3fndmo4Kc6g)
+            if (videoId === '3fndmo4Kc6g') {
+                videoDisclaimer.classList.remove('hidden');
+            } else {
+                videoDisclaimer.classList.add('hidden');
+            }
+            
             youtubeFrame.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`;
             document.body.classList.add('lightbox-open');
         }
@@ -422,6 +438,7 @@
             }, 10);
 
             videoContainer.classList.add('hidden');
+            videoDisclaimer.classList.add('hidden'); // Ensure disclaimer is hidden for galleries
             imageContainer.classList.remove('hidden');
             
             updateGalleryImage();
@@ -468,6 +485,7 @@
             setTimeout(() => {
                 modal.classList.add('hidden');
                 youtubeFrame.src = "";
+                videoDisclaimer.classList.add('hidden'); // Reset disclaimer
                 document.body.classList.remove('lightbox-open');
             }, 300);
         }
