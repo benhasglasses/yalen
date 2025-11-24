@@ -170,10 +170,10 @@
                 </div>
 
                 <!-- Star Intro -->
-                <div onclick="openVideo('YjTJRQGyHcQ')" class="card-bg group hover:bg-white transition-all duration-500 p-1 rounded-2xl border border-color hover-border-color cursor-pointer shadow-sm hover:shadow-md">
+                <div onclick="openVideo('d0fbbM7YxMc')" class="card-bg group hover:bg-white transition-all duration-500 p-1 rounded-2xl border border-color hover-border-color cursor-pointer shadow-sm hover:shadow-md">
                     <div class="card-image-container h-48 bg-slate-200 rounded-xl mb-2 overflow-hidden relative">
                         <!-- OPTIMIZATION: Added fetchpriority="high" -->
-                        <img src="https://img.youtube.com/vi/YjTJRQGyHcQ/maxresdefault.jpg" alt="Star Intro Thumbnail" class="card-image w-full h-full object-cover object-top" fetchpriority="high">
+                        <img src="https://img.youtube.com/vi/d0fbbM7YxMc/maxresdefault.jpg" alt="Star Intro Thumbnail" class="card-image w-full h-full object-cover object-top" fetchpriority="high">
                          <!-- Play Icon Overlay -->
                          <div class="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/10 transition-colors">
                             <div class="bg-white/20 p-3 rounded-full shadow-sm backdrop-blur-sm">
@@ -416,7 +416,8 @@
                 videoDisclaimer.classList.add('hidden');
             }
             
-            youtubeFrame.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`;
+            // OPTIMIZATION: Added &vq=hd1080 to request 1080p quality
+            youtubeFrame.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&vq=hd1080`;
             document.body.classList.add('lightbox-open');
         }
 
