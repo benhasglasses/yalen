@@ -146,72 +146,9 @@
                 </p>
             </header>
             
-            <!-- Content Grid -->
-            <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-4 max-w-5xl mx-auto">
-                
-                <!-- Video Trailer -->
-                <div onclick="openVideo('3fndmo4Kc6g')" class="card-bg group hover:bg-white transition-all duration-500 p-1 rounded-2xl border border-color hover-border-color cursor-pointer shadow-sm hover:shadow-md">
-                    <div class="card-image-container h-48 bg-slate-200 rounded-xl mb-2 overflow-hidden relative">
-                        <!-- OPTIMIZATION: Added fetchpriority="high" -->
-                        <img src="https://img.youtube.com/vi/3fndmo4Kc6g/maxresdefault.jpg" alt="Trailer Thumbnail" class="card-image w-full h-full object-cover" fetchpriority="high">
-                        <!-- Play Icon Overlay -->
-                        <div class="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/10 transition-colors">
-                            <div class="bg-white/20 p-3 rounded-full shadow-sm backdrop-blur-sm">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white/40 ml-1" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="px-4 pb-3">
-                        <h3 class="text-xl font-bold highlight-text mb-1 transition-colors">VIDEO TRAILER</h3>
-                        <p class="text-sm text-slate-500">Trailer</p>
-                    </div>
-                </div>
-
-                <!-- Star Intro -->
-                <div onclick="openVideo('YjTJRQGyHcQ')" class="card-bg group hover:bg-white transition-all duration-500 p-1 rounded-2xl border border-color hover-border-color cursor-pointer shadow-sm hover:shadow-md">
-                    <div class="card-image-container h-48 bg-slate-200 rounded-xl mb-2 overflow-hidden relative">
-                        <!-- OPTIMIZATION: Added fetchpriority="high" -->
-                        <img src="https://img.youtube.com/vi/YjTJRQGyHcQ/maxresdefault.jpg" alt="Star Intro Thumbnail" class="card-image w-full h-full object-cover object-top" fetchpriority="high">
-                         <!-- Play Icon Overlay -->
-                         <div class="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/10 transition-colors">
-                            <div class="bg-white/20 p-3 rounded-full shadow-sm backdrop-blur-sm">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white/40 ml-1" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="px-4 pb-3">
-                        <h3 class="text-xl font-bold text-slate-900 mb-1 transition-colors">STAR INTRODUCTION</h3>
-                        <p class="text-sm text-slate-500">Personal message from the lead actor</p>
-                    </div>
-                </div>
-
-                <!-- Pitch Deck -->
-                <div onclick="openGallery('pitch')" class="card-bg group hover:bg-white transition-all duration-500 p-1 rounded-2xl border border-color hover-border-color cursor-pointer shadow-sm hover:shadow-md">
-                    <div class="card-image-container h-48 bg-slate-200 rounded-xl mb-2 overflow-hidden">
-                        <!-- OPTIMIZATION: Added fetchpriority="high" -->
-                        <img src="https://github.com/benhasglasses/yalen/blob/main/thumbs/logline_thumb.webp?raw=true" alt="Pitch Deck Thumbnail" class="card-image w-full h-full object-cover" fetchpriority="high">
-                    </div>
-                    <div class="px-4 pb-3">
-                        <h3 class="text-xl font-bold text-slate-900 mb-1 transition-colors">PITCH DECK</h3>
-                        <p class="text-sm text-slate-500">Production Information</p>
-                    </div>
-                </div>
-
-                <!-- Storyboards -->
-                <div onclick="openGallery('storyboard')" class="card-bg group hover:bg-white transition-all duration-500 p-1 rounded-2xl border border-color hover-border-color cursor-pointer shadow-sm hover:shadow-md">
-                    <div class="card-image-container h-48 bg-slate-200 rounded-xl mb-2 overflow-hidden">
-                        <!-- OPTIMIZATION: Added fetchpriority="high" -->
-                        <img src="https://github.com/benhasglasses/yalen/blob/main/thumbs/carousel_thumb.webp?raw=true" alt="Storyboards Thumbnail" class="card-image w-full h-full object-cover" fetchpriority="high">
-                    </div>
-                    <div class="px-4 pb-3">
-                        <h3 class="text-xl font-bold text-slate-900 mb-1 transition-colors">STORYBOARDS GALLERY</h3>
-                        <p class="text-sm text-slate-500">Concept Art</p>
-                    </div>
-                </div>
+            <!-- Content Grid (Now dynamically generated) -->
+            <div id="content-grid" class="grid md:grid-cols-2 lg:grid-cols-2 gap-4 max-w-5xl mx-auto">
+                <!-- Cards injected here -->
             </div>
 
             <!-- Contact / Footer Section -->
@@ -269,33 +206,130 @@
             <!-- Image/Gallery Container -->
             <div id="image-container" class="hidden flex flex-col items-center">
                 <div class="relative">
-                     <!-- Loading Spinner Element -->
-                     <div id="gallery-loader" class="absolute inset-0 flex items-center justify-center z-10 hidden">
-                        <div class="loader"></div>
-                     </div>
+                     <!-- Loading Spinner Element -->
+                     <div id="gallery-loader" class="absolute inset-0 flex items-center justify-center z-10 hidden">
+                        <div class="loader"></div>
+                     </div>
 
-                     <img id="gallery-image" src="" alt="Gallery Content" class="max-h-[80vh] w-auto object-contain rounded-lg shadow-2xl border border-slate-800 transition-opacity duration-300">
-                     
-                     <!-- Nav Buttons (Overlay) -->
-                     <button onclick="prevImage()" class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/80 text-white p-2 rounded-full transition-colors backdrop-blur-sm z-20">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                        </svg>
+                     <img id="gallery-image" src="" alt="Gallery Content" class="max-h-[80vh] w-auto object-contain rounded-lg shadow-2xl border border-slate-800 transition-opacity duration-300">
+                     
+                     <!-- Nav Buttons (Overlay) -->
+                     <button onclick="prevImage()" class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/80 text-white p-2 rounded-full transition-colors backdrop-blur-sm z-20">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                        </svg>
                     </button>
                     <button onclick="nextImage()" class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/80 text-white p-2 rounded-full transition-colors backdrop-blur-sm z-20">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
                     </button>
                 </div>
                 <div class="mt-4 flex items-center space-x-2">
-                     <span id="image-counter" class="text-slate-400 font-mono text-sm tracking-wider">1 / 5</span>
+                     <span id="image-counter" class="text-slate-400 font-mono text-sm tracking-wider">1 / 5</span>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
+        // --- CENTRALIZED CONFIGURATION FOR CONTENT CARDS ---
+        // Edit everything here. Reorder images by moving their lines up or down.
+        const CONTENT_DATA = [
+            {
+                id: 'PjgF1cMhyrQ',
+                type: 'video', 
+                galleryType: null,
+                title: 'VIDEO TRAILER',
+                subtitle: 'Trailer',
+                highlight: true,
+                thumbnail: 'https://img.youtube.com/vi/PjgF1cMhyrQ/maxresdefault.jpg'
+            },
+            {
+                id: 'EHjLAJeiIno',
+                type: 'video',
+                galleryType: null,
+                title: 'STAR INTRODUCTION',
+                subtitle: 'Personal message from the lead actor',
+                highlight: false,
+                thumbnail: 'https://img.youtube.com/vi/EHjLAJeiIno/maxresdefault.jpg'
+            },
+            {
+                id: null,
+                type: 'gallery',
+                galleryType: 'pitch', // Key used to identify this gallery
+                title: 'PITCH DECK',
+                subtitle: 'Production Information',
+                highlight: false,
+                thumbnail: 'https://github.com/benhasglasses/yalen/blob/main/pitch/FirstTimePitchDeck_01.webp?raw=true',
+                // Explicit list of images for the Pitch Deck. Edit/Reorder as needed.
+                images: [
+                    "https://github.com/benhasglasses/yalen/blob/main/pitch/FirstTimePitchDeck_01.webp?raw=true",
+                    "https://github.com/benhasglasses/yalen/blob/main/pitch/FirstTimePitchDeck_02.webp?raw=true",
+                    "https://github.com/benhasglasses/yalen/blob/main/pitch/FirstTimePitchDeck_03.webp?raw=true",
+                    "https://github.com/benhasglasses/yalen/blob/main/pitch/FirstTimePitchDeck_04.webp?raw=true",
+                    "https://github.com/benhasglasses/yalen/blob/main/pitch/FirstTimePitchDeck_05.webp?raw=true",
+                    "https://github.com/benhasglasses/yalen/blob/main/pitch/FirstTimePitchDeck_06.webp?raw=true",
+                    "https://github.com/benhasglasses/yalen/blob/main/pitch/FirstTimePitchDeck_07.webp?raw=true",
+                    "https://github.com/benhasglasses/yalen/blob/main/pitch/FirstTimePitchDeck_08.webp?raw=true",
+                    "https://github.com/benhasglasses/yalen/blob/main/pitch/FirstTimePitchDeck_09.webp?raw=true",
+                    "https://github.com/benhasglasses/yalen/blob/main/pitch/FirstTimePitchDeck_10.webp?raw=true",
+                    "https://github.com/benhasglasses/yalen/blob/main/pitch/FirstTimePitchDeck_11.webp?raw=true",
+                    "https://github.com/benhasglasses/yalen/blob/main/pitch/FirstTimePitchDeck_12.webp?raw=true",
+                    "https://github.com/benhasglasses/yalen/blob/main/pitch/FirstTimePitchDeck_13.webp?raw=true",
+                    "https://github.com/benhasglasses/yalen/blob/main/pitch/FirstTimePitchDeck_14.webp?raw=true",
+                    "https://github.com/benhasglasses/yalen/blob/main/pitch/FirstTimePitchDeck_15.webp?raw=true",
+                    "https://github.com/benhasglasses/yalen/blob/main/pitch/FirstTimePitchDeck_16.webp?raw=true",
+                    "https://github.com/benhasglasses/yalen/blob/main/pitch/FirstTimePitchDeck_17.webp?raw=true",
+                    "https://github.com/benhasglasses/yalen/blob/main/pitch/FirstTimePitchDeck_18.webp?raw=true"
+                ]
+            },
+            {
+                id: null,
+                type: 'gallery',
+                galleryType: 'storyboard',
+                title: 'STORYBOARDS GALLERY',
+                subtitle: 'Concept Art',
+                highlight: false,
+                thumbnail: 'https://github.com/benhasglasses/yalen/blob/main/pitch/FTFE_00.webp?raw=true',
+                // Explicit list of images for the Storyboards. Edit/Reorder as needed.
+                images: [
+                    "https://github.com/benhasglasses/yalen/blob/main/pitch/FTFE_00.webp?raw=true",
+                    "https://github.com/benhasglasses/yalen/blob/main/pitch/FTFE_01.webp?raw=true",
+                    "https://github.com/benhasglasses/yalen/blob/main/pitch/FTFE_02.webp?raw=true",
+                    "https://github.com/benhasglasses/yalen/blob/main/pitch/FTFE_03.webp?raw=true",
+                    "https://github.com/benhasglasses/yalen/blob/main/pitch/FTFE_04.webp?raw=true",
+                    "https://github.com/benhasglasses/yalen/blob/main/pitch/FTFE_05.webp?raw=true",
+                    "https://github.com/benhasglasses/yalen/blob/main/pitch/FTFE_06.webp?raw=true",
+                    "https://github.com/benhasglasses/yalen/blob/main/pitch/FTFE_07.webp?raw=true",
+                    "https://github.com/benhasglasses/yalen/blob/main/pitch/FTFE_08.webp?raw=true",
+                    "https://github.com/benhasglasses/yalen/blob/main/pitch/FTFE_09.webp?raw=true",
+                    "https://github.com/benhasglasses/yalen/blob/main/pitch/FTFE_10.webp?raw=true",
+                    "https://github.com/benhasglasses/yalen/blob/main/pitch/FTFE_11.webp?raw=true",
+                    "https://github.com/benhasglasses/yalen/blob/main/pitch/FTFE_12.webp?raw=true",
+                    "https://github.com/benhasglasses/yalen/blob/main/pitch/FTFE_13.webp?raw=true",
+                    "https://github.com/benhasglasses/yalen/blob/main/pitch/FTFE_14.webp?raw=true",
+                    "https://github.com/benhasglasses/yalen/blob/main/pitch/FTFE_15.webp?raw=true",
+                    "https://github.com/benhasglasses/yalen/blob/main/pitch/FTFE_16.webp?raw=true",
+                    "https://github.com/benhasglasses/yalen/blob/main/pitch/FTFE_17.webp?raw=true",
+                    "https://github.com/benhasglasses/yalen/blob/main/pitch/FTFE_18.webp?raw=true",
+                    "https://github.com/benhasglasses/yalen/blob/main/pitch/FTFE_19.webp?raw=true",
+                    "https://github.com/benhasglasses/yalen/blob/main/pitch/FTFE_20.webp?raw=true",
+                    "https://github.com/benhasglasses/yalen/blob/main/pitch/FTFE_21.webp?raw=true",
+                    "https://github.com/benhasglasses/yalen/blob/main/pitch/FTFE_22.webp?raw=true",
+                    "https://github.com/benhasglasses/yalen/blob/main/pitch/FTFE_23.webp?raw=true",
+                    "https://github.com/benhasglasses/yalen/blob/main/pitch/FTFE_24.webp?raw=true",
+                    "https://github.com/benhasglasses/yalen/blob/main/pitch/FTFE_25.webp?raw=true",
+                    "https://github.com/benhasglasses/yalen/blob/main/pitch/FTFE_26.webp?raw=true",
+                    "https://github.com/benhasglasses/yalen/blob/main/pitch/FTFE_27.webp?raw=true",
+                    "https://github.com/benhasglasses/yalen/blob/main/pitch/FTFE_28.webp?raw=true",
+                    "https://github.com/benhasglasses/yalen/blob/main/pitch/FTFE_29.webp?raw=true",
+                    "https://github.com/benhasglasses/yalen/blob/main/pitch/FTFE_30.webp?raw=true",
+                    "https://github.com/benhasglasses/yalen/blob/main/pitch/FTFE_31.webp?raw=true"
+                ]
+            }
+        ];
+        
         // --- Password Logic ---
         function checkPassword(event) {
             event.preventDefault();
@@ -326,78 +360,77 @@
             location.reload();
         }
 
+        // --- Content Card Rendering ---
+        function renderContentCards() {
+            const grid = document.getElementById('content-grid');
+            if (!grid) return;
+
+            grid.innerHTML = CONTENT_DATA.map(item => {
+                // Determine the correct onclick action and ID/Type
+                const onClickAction = item.type === 'video' 
+                    ? `openVideo('${item.id}')` 
+                    : `openGallery('${item.galleryType}')`;
+                
+                // Determine the text highlight class
+                const titleClass = item.highlight ? 'highlight-text' : 'text-slate-900';
+
+                // Video/Play Icon specific overlay (only for video type)
+                const playIconOverlay = item.type === 'video' ? `
+                    <!-- Play Icon Overlay -->
+                    <div class="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/10 transition-colors">
+                        <div class="bg-white/20 p-3 rounded-full shadow-sm backdrop-blur-sm">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white/40 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                    </div>
+                ` : '';
+
+                return `
+                    <div onclick="${onClickAction}" class="card-bg group hover:bg-white transition-all duration-500 p-1 rounded-2xl border border-color hover-border-color cursor-pointer shadow-sm hover:shadow-md">
+                        <div class="card-image-container h-48 bg-slate-200 rounded-xl mb-2 overflow-hidden relative">
+                            <img src="${item.thumbnail}" alt="${item.title} Thumbnail" class="card-image w-full h-full object-cover ${item.type === 'video' ? 'object-center' : ''}" fetchpriority="high" onerror="this.onerror=null;this.src='https://placehold.co/400x200/e2e8f0/475569?text=Image+Unavailable';">
+                            ${playIconOverlay}
+                        </div>
+                        <div class="px-4 pb-3">
+                            <h3 class="text-xl font-bold ${titleClass} mb-1 transition-colors">${item.title}</h3>
+                            <p class="text-sm text-slate-500">${item.subtitle}</p>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+
         // --- Lightbox Logic ---
         const modal = document.getElementById('media-modal');
         const videoContainer = document.getElementById('video-container');
-        const videoDisclaimer = document.getElementById('video-disclaimer'); // NEW
+        const videoDisclaimer = document.getElementById('video-disclaimer'); 
         const imageContainer = document.getElementById('image-container');
         const youtubeFrame = document.getElementById('youtube-frame');
         const galleryImage = document.getElementById('gallery-image');
         const imageCounter = document.getElementById('image-counter');
         const galleryLoader = document.getElementById('gallery-loader');
 
-        // --- DATA DEFINITIONS ---
-        const storyboardLinks = [
-            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_00.webp?raw=true",
-            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_01.webp?raw=true",
-            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_02.webp?raw=true",
-            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_03.webp?raw=true",
-            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_04.webp?raw=true",
-            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_05.webp?raw=true",
-            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_06.webp?raw=true",
-            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_07.webp?raw=true",
-            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_08.webp?raw=true",
-            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_09.webp?raw=true",
-            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_10.webp?raw=true",
-            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_11.webp?raw=true",
-            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_12.webp?raw=true",
-            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_13.webp?raw=true",
-            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_14.webp?raw=true",
-            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_15.webp?raw=true",
-            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_16.webp?raw=true",
-            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_17.webp?raw=true",
-            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_18.webp?raw=true",
-            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_19.webp?raw=true",
-            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_20.webp?raw=true",
-            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_21.webp?raw=true",
-            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_22.webp?raw=true",
-            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_23.webp?raw=true",
-            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_24.webp?raw=true",
-            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_25.webp?raw=true",
-            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_26.webp?raw=true",
-            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_27.webp?raw=true",
-            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_28.webp?raw=true",
-            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_29.webp?raw=true",
-            "https://github.com/benhasglasses/yalen/blob/main/storyboards/FTFE_30.webp?raw=true"
-        ];
-
-        // Generate Pitch Links
-        const pitchDeckBaseUrl = "https://github.com/benhasglasses/yalen/blob/main/pitch/FirstTimePitchDeck_";
-        const pitchLinks = [];
-        for (let i = 1; i <= 15; i++) {
-            const num = i.toString().padStart(2, '0');
-            pitchLinks.push(`${pitchDeckBaseUrl}${num}.webp?raw=true`);
-        }
-
-        // Image Data
+        // Image Data for Gallery Viewer
         let galleryImages = [];
         let currentImageIndex = 0;
         let galleryTypeLabel = "GALLERY";
 
         // --- OPTIMIZATION: Background Prefetch ---
-        // Loads the first few images of each gallery silently so they are ready instantly
         function prefetchContent() {
-            // Helper to load image
             const loadImg = (url) => {
                 const img = new Image();
                 img.src = url;
             };
 
-            // Load first 3 images of Pitch Deck
-            pitchLinks.slice(0, 3).forEach(url => loadImg(url));
-
-            // Load first 3 images of Storyboards
-            storyboardLinks.slice(0, 3).forEach(url => loadImg(url));
+            // Loop through content data to prefetch thumbnails and first few images of galleries
+            CONTENT_DATA.forEach(item => {
+                if (item.thumbnail) loadImg(item.thumbnail);
+                if (item.images && item.images.length > 0) {
+                    item.images.slice(0, 3).forEach(url => loadImg(url));
+                }
+            });
         }
 
         function openVideo(videoId) {
@@ -422,15 +455,16 @@
         }
 
         function openGallery(type) {
-            galleryImages = [];
             currentImageIndex = 0;
+            
+            // Find the correct content item based on the gallery type string
+            const galleryItem = CONTENT_DATA.find(item => item.galleryType === type);
 
-            if (type === 'pitch') {
-                galleryTypeLabel = "PITCH DECK";
-                galleryImages = [...pitchLinks];
-            } else if (type === 'storyboard') {
-                galleryTypeLabel = "CONCEPT ART";
-                galleryImages = [...storyboardLinks];
+            if (galleryItem) {
+                galleryTypeLabel = galleryItem.title; // Set label to the actual title (e.g. "PITCH DECK")
+                galleryImages = galleryItem.images || []; // Load the specific images array
+            } else {
+                galleryImages = [];
             }
 
             modal.classList.remove('hidden');
@@ -439,7 +473,7 @@
             }, 10);
 
             videoContainer.classList.add('hidden');
-            videoDisclaimer.classList.add('hidden'); // Ensure disclaimer is hidden for galleries
+            videoDisclaimer.classList.add('hidden'); 
             imageContainer.classList.remove('hidden');
             
             updateGalleryImage();
@@ -486,7 +520,7 @@
             setTimeout(() => {
                 modal.classList.add('hidden');
                 youtubeFrame.src = "";
-                videoDisclaimer.classList.add('hidden'); // Reset disclaimer
+                videoDisclaimer.classList.add('hidden'); 
                 document.body.classList.remove('lightbox-open');
             }, 300);
         }
@@ -502,6 +536,9 @@
                 if (event.key === "ArrowLeft") prevImage();
             }
         });
+
+        // Initialize content cards on load
+        window.addEventListener('DOMContentLoaded', renderContentCards);
     </script>
 </body>
 </html>
