@@ -241,7 +241,7 @@
     </div>
 
     <!-- Media Lightbox Modal (Hidden by default) -->
-    <div id="media-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-slate-900/95 backdrop-blur-md transition-all duration-300 opacity-0" onclick="closeModal(event)">
+    <div id="media-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/95 backdrop-blur-md transition-all duration-300 hidden opacity-0" onclick="closeModal(event)">
         <div class="relative w-full max-w-5xl mx-4 p-2" onclick="event.stopPropagation()">
             <!-- Close Button -->
             <button onclick="closeModal()" class="absolute -top-8 right-0 text-slate-400 hover:text-white transition-colors group">
@@ -252,7 +252,10 @@
             </button>
 
             <!-- Video Content -->
-            <div id="video-container" class="hidden aspect-video w-full bg-black rounded-xl overflow-hidden shadow-2xl border border-slate-800">
+            <!-- Added 'relative' class to anchor the masking element -->
+            <div id="video-container" class="hidden aspect-video w-full bg-black rounded-xl overflow-hidden shadow-2xl border border-slate-800 relative">
+                <!-- CSS MASKING TRICK: This div is used to visually cover the YouTube share/copy link button in the top right, as it cannot be removed via API parameters. -->
+                <div class="absolute top-0 right-0 h-10 w-12 bg-black z-30 pointer-events-none"></div>
                 <iframe id="youtube-frame" class="w-full h-full" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
 
@@ -428,7 +431,6 @@
             // modestbranding=1 attempts to hide the YouTube logo in the control bar.
             // rel=0 prevents related videos from showing at the end.
             // disablekb=1 prevents keyboard control interference.
-            // Note: Direct suppression of the channel icon and share button is no longer supported by YouTube's API.
             youtubeFrame.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&disablekb=1`;
             document.body.classList.add('lightbox-open');
         }
