@@ -424,12 +424,12 @@
                 videoDisclaimer.classList.add('hidden');
             }
             
-            // Embed YouTube video with minimal settings:
-            // modestbranding=1 helps hide the logo/icon in the control bar.
+            // Embed YouTube video with the most minimal configuration possible:
+            // modestbranding=1 attempts to hide the YouTube logo in the control bar.
+            // rel=0 prevents related videos from showing at the end.
             // disablekb=1 prevents keyboard control interference.
-            // vq=hd1080 requests high quality.
-            // Note: Full removal of the share button/title in the top-left is challenging due to YouTube's API changes (showinfo is deprecated), but this provides the most minimal approach while keeping controls visible.
-            youtubeFrame.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&vq=hd1080&disablekb=1`;
+            // Note: Direct suppression of the channel icon and share button is no longer supported by YouTube's API.
+            youtubeFrame.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&disablekb=1`;
             document.body.classList.add('lightbox-open');
         }
 
