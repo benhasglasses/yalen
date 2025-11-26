@@ -424,9 +424,12 @@
                 videoDisclaimer.classList.add('hidden');
             }
             
-            // Embed YouTube video with autoplay, no-cookie domain, and minimal parameters
-            // Added controls=0, iv_load_policy=3, and fs=0 for minimal player/reduced distractions
-            youtubeFrame.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&controls=0&iv_load_policy=3&fs=0&vq=hd1080`;
+            // Embed YouTube video with minimal settings:
+            // modestbranding=1 helps hide the logo/icon in the control bar.
+            // disablekb=1 prevents keyboard control interference.
+            // vq=hd1080 requests high quality.
+            // Note: Full removal of the share button/title in the top-left is challenging due to YouTube's API changes (showinfo is deprecated), but this provides the most minimal approach while keeping controls visible.
+            youtubeFrame.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&vq=hd1080&disablekb=1`;
             document.body.classList.add('lightbox-open');
         }
 
