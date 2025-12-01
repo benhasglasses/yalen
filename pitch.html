@@ -197,7 +197,8 @@
                 <!-- Pitch Deck Gallery Card -->
                 <div onclick="openGallery('pitch')" class="card-bg group hover:bg-white transition-all duration-500 p-1 rounded-2xl border border-color hover-border-color cursor-pointer shadow-sm hover:shadow-md">
                     <div class="card-image-container h-48 bg-slate-200 rounded-xl mb-2 overflow-hidden">
-                        <img src="https://github.com/benhasglasses/yalen/blob/main/pitch/logline_thumb.webp?raw=true" alt="Pitch Deck Thumbnail" class="card-image w-full h-full object-cover" fetchpriority="high" onerror="this.onerror=null;this.src='https://placehold.co/1280x720/F97316/000000?text=Pitch+Deck'">
+                        <!-- MODIFIED: Changed the thumbnail source to posterthumb.webp -->
+                        <img src="https://github.com/benhasglasses/yalen/blob/main/pitch/posterthumb.webp?raw=true" alt="Pitch Deck Thumbnail" class="card-image w-full h-full object-cover" fetchpriority="high" onerror="this.onerror=null;this.src='https://placehold.co/1280x720/F97316/000000?text=Pitch+Deck'">
                     </div>
                     <div class="px-4 pb-3">
                         <h3 class="text-xl font-bold text-slate-900 mb-1 transition-colors">PITCH DECK</h3>
@@ -383,10 +384,10 @@
             "https://github.com/benhasglasses/yalen/blob/main/pitch/FTFE_31.webp?raw=true" 
         ];
 
-        // Generate Pitch Links (19 slides: 01 through 19)
+        // Generate Pitch Links (21 slides: 00 through 20)
         const pitchDeckBaseUrl = "https://github.com/benhasglasses/yalen/blob/main/pitch/FirstTimePitchDeck_";
         const pitchLinks = [];
-        for (let i = 1; i <= 19; i++) { // CHANGED FROM 18 TO 19
+        for (let i = 0; i <= 20; i++) { // CHANGED FROM 1 to 19 to 0 to 20
             const num = i.toString().padStart(2, '0');
             pitchLinks.push(`${pitchDeckBaseUrl}${num}.webp?raw=true`);
         }
