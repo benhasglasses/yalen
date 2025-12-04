@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Time for Everything - Investor Access</title>
+    
+    <!-- Preconnects removed as they are largely unnecessary in this context but keeping Tailwind script -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Ensuring body uses the Montserrat font and standard colors */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #ffffff;
+            color: #475569; /* slate-600 */
+        }
+        /* Fade-in animation for smoother transitions */
+        .fade-in {
+            animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Custom styles for the password input glow */
+        .password-input-glow:focus {
+            box-shadow: 0 0 0 2px rgba(255, 204, 0, 0.5), 0 0 10px rgba(255, 204, 0, 0.2);
+            border-color: #ffcc00;
+        }
+        /* Color variables for consistent styling */
+        .card-bg {
+            background-color: #f8fafc; /* slate-50 */
+        }
+        .border-color {
+            border-color: #e2e8f0; /* slate-200 */
+        }
+        .hover-border-color:hover {
+            border-color: #cbd5e1; /* slate-300 */
+        }
+        .highlight-text {
+            color: #ca8a04; /* yellow-600 - Darker gold for readability on white */
+        }
+        .button-bg {
+            background-color: #ca8a04; /* Darker gold button */
+            color: #ffffff;
+        }
+        .button-bg:hover {
+            background-color: #a16207; /* yellow-700 */
+        }
+        .error-text {
+            color: #ef4444; /* red-500 */
+        }
+        .nav-link:hover {
+            color: #ca8a04;
+        }
+        /* Lightbox specific styles to prevent scroll jank */
+        .lightbox-open {
+            overflow: hidden;
+        }
+        /* Thumbnail hover effect */
+        .card-image-container {
+            overflow: hidden;
+        }
+        .card-image {
+            transition: transform 0.5s ease;
+        }
+        .group:hover .card-image {
+            transform: scale(1.05);
+        }
+        /* Loading Spinner for gallery */
+        .loader {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #ca8a04;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        /* Force image to respect modal height */
+        #gallery-image {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center selection:bg-yellow-200 selection:text-slate-900">
+
+    <!-- Login Card (Initial View) -->
+    <div id="login-card" class="card-bg p-6 rounded-2xl shadow-xl w-full max-w-xl border border-color relative overflow-hidden">
+        <!-- Accent bar -->
+        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500"></div>
+
+        <div class="text-center mb-5 space-y-3">
+            <h1 class="text-4xl md:text-5xl font-light text-slate-900 tracking-tight leading-tight">
+                WELCOME, <br>
+                <span class="font-bold italic highlight-text text-5xl md:text-6xl tracking-wide">FIRST TIME FOR EVERYTHING</span> <br>
+                INVESTORS!
+            </h1>
+            <p class="text-slate-500 text-lg font-light leading-relaxed px-2">
+                To see our pitch deck, video trailer, personal introduction from our star, table read, and storyboards gallery, please enter your access code below.
+            </p>
+        </div>
+
+        <!-- Password is "carousel" -->
+        <form id="login-form" class="space-y-4" onsubmit="checkPassword(event)">
+            <div class="relative group">
+                <input 
+                    type="password" 
+                    id="password-input" 
+                    placeholder="Password" 
+                    class="w-full px-6 py-4 bg-white border border-color rounded-xl focus:outline-none password-input-glow text-center text-xl tracking-widest text-slate-900 placeholder-slate-400 transition-all duration-300 group-hover:border-slate-300 shadow-sm"
+                    autofocus
+                >
+            </div>
+            <button 
+                type="submit" 
+                class="w-full button-bg font-bold py-4 rounded-xl transition-all duration-300 transform hover:scale-[1.01] shadow-lg shadow-yellow-900/10 tracking-wide uppercase"
+            >
+                ENTER
+            </button>
+            <p id="error-message" class="error-text text-sm text-center hidden mt-2 fade-in font-medium">
+                Incorrect password. Please try again.
+            </p>
+        </form>
+    </div>
+
+    <!-- Protected Content (Hidden until login) -->
+    <div id="protected-content" class="hidden w-full max-w-6xl p-6 fade-in">
+        <!-- Header / Nav -->
+        <nav class="flex justify-between items-center mb-8 border-b border-slate-200 pb-3">
+            <span class="text-2xl font-bold italic highlight-text">Investor Presentation</span>
+            <button onclick="logout()" class="text-xs uppercase tracking-widest text-slate-400 hover:text-slate-900 transition-colors nav-link font-bold">Lock Access</button>
+        </nav>
+
+        <main>
+            <!-- Hero / Title -->
+            <header class="text-center mb-8">
+                <!-- TAGLINE MOVED HERE -->
+                <p class="text-xl text-slate-700 font-semibold leading-snug mb-3">
+                    A teen LGBTQ comedy-drama-musical feature film for all ages.
+                </p>
+                <h2 class="text-5xl md:text-7xl font-thin text-slate-900 mb-3 tracking-tighter uppercase">
+                    First Time for Everything
+                </h2>
+                <p class="text-xl text-slate-500 font-light max-w-2xl mx-auto">
+                    Confidential materials for authorized viewers only.
+                </p>
+            </header>
+            
+            <!-- Content Grid (Cards) -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-4 max-w-5xl mx-auto">
+                
+                <!-- Video Trailer Card -->
+                <div onclick="openVideo('PjgF1cMhyrQ')" class="card-bg group hover:bg-white transition-all duration-500 p-1 rounded-2xl border border-color hover-border-color cursor-pointer shadow-sm hover:shadow-md">
+                    <div class="card-image-container h-48 bg-slate-200 rounded-xl mb-2 overflow-hidden relative">
+                        <!-- Updated YouTube thumbnail to match new ID PjgF1cMhyrQ -->
+                        <img src="https://img.youtube.com/vi/PjgF1cMhyrQ/maxresdefault.jpg" alt="Trailer Thumbnail" class="card-image w-full h-full object-cover" fetchpriority="high" onerror="this.onerror=null;this.src='https://placehold.co/1280x720/FBBF24/000000?text=Trailer+Video'">
+                        <div class="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/10 transition-colors">
+                            <div class="bg-white/20 p-3 rounded-full shadow-sm backdrop-blur-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white/40 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="px-4 pb-3">
+                        <h3 class="text-xl font-bold highlight-text mb-1 transition-colors">VIDEO TRAILER</h3>
+                        <!-- Updated subtitle text -->
+                        <p class="text-sm text-slate-500">Trailer</p>
+                    </div>
+                </div>
+
+                <!-- Star Introduction Video Card -->
+                <div onclick="openVideo('EHjLAJeiIno')" class="card-bg group hover:bg-white transition-all duration-500 p-1 rounded-2xl border border-color hover-border-color cursor-pointer shadow-sm hover:shadow-md">
+                    <div class="card-image-container h-48 bg-slate-200 rounded-xl mb-2 overflow-hidden relative">
+                        <!-- Updated YouTube thumbnail to match new ID EHjLAJeiIno -->
+                        <img src="https://img.youtube.com/vi/EHjLAJeiIno/maxresdefault.jpg" alt="Star Intro Thumbnail" class="card-image w-full h-full object-cover object-top" fetchpriority="high" onerror="this.onerror=null;this.src='https://placehold.co/1280x720/60A5FA/000000?text=Star+Introduction'">
+                        <div class="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/10 transition-colors">
+                            <div class="bg-white/20 p-3 rounded-full shadow-sm backdrop-blur-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white/40 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="px-4 pb-3">
+                        <h3 class="text-xl font-bold text-slate-900 mb-1 transition-colors">STAR INTRODUCTION </h3>
+                        <p class="text-sm text-slate-500">Personal message from the lead actor, plus table read.</p>
+                    </div>
+                </div>
+
+                <!-- Pitch Deck Gallery Card -->
+                <div onclick="openGallery('pitch')" class="card-bg group hover:bg-white transition-all duration-500 p-1 rounded-2xl border border-color hover-border-color cursor-pointer shadow-sm hover:shadow-md">
+                    <div class="card-image-container h-48 bg-slate-200 rounded-xl mb-2 overflow-hidden">
+                        <!-- MODIFIED: Changed the thumbnail source to posterthumb.webp -->
+                        <img src="https://github.com/benhasglasses/yalen/blob/main/pitch/posterthumb.webp?raw=true" alt="Pitch Deck Thumbnail" class="card-image w-full h-full object-cover" fetchpriority="high" onerror="this.onerror=null;this.src='https://placehold.co/1280x720/F97316/000000?text=Pitch+Deck'">
+                    </div>
+                    <div class="px-4 pb-3">
+                        <h3 class="text-xl font-bold text-slate-900 mb-1 transition-colors">PITCH DECK</h3>
+                        <p class="text-sm text-slate-500">Production Information Slides</p>
+                    </div>
+                </div>
+
+                <!-- Storyboards Gallery Card -->
+                <div onclick="openGallery('storyboard')" class="card-bg group hover:bg-white transition-all duration-500 p-1 rounded-2xl border border-color hover-border-color cursor-pointer shadow-sm hover:shadow-md">
+                    <div class="card-image-container h-48 bg-slate-200 rounded-xl mb-2 overflow-hidden">
+                        <img src="https://github.com/benhasglasses/yalen/blob/main/pitch/carousel_thumb.webp?raw=true" alt="Storyboards Thumbnail" class="card-image w-full h-full object-cover" fetchpriority="high" onerror="this.onerror=null;this.src='https://placehold.co/1280x720/EC4899/000000?text=Storyboards'">
+                    </div>
+                    <div class="px-4 pb-3">
+                        <h3 class="text-xl font-bold text-slate-900 mb-1 transition-colors">STORYBOARDS GALLERY</h3>
+                        <p class="text-sm text-slate-500">Concept Art</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Information Section -->
+            <div class="mt-12 pt-6 border-t border-slate-200 text-center pb-6">
+                <p class="text-lg text-slate-600 mb-4 max-w-3xl mx-auto leading-relaxed font-medium">
+                    For information on investing in our indie feature film <br>
+                    <span class="font-bold italic highlight-text text-xl">First Time for Everything,</span><br>
+                    please contact us at:
+                </p>
+                
+                <div class="mb-6 space-y-2">
+                    <h3 class="text-2xl font-bold text-slate-900">PY Songs International</h3>
+                    <a href="mailto:PYSongsLtd@gmail.com" class="block text-lg text-slate-600 hover:text-yellow-600 transition-colors font-medium">PYSongsLtd@gmail.com</a>
+                    <p class="text-slate-500">Boston, MA &nbsp;USA</p>
+                    <a href="tel:7813303311" class="block text-slate-600 hover:text-yellow-600 transition-colors">781 330 3311</a>
+                </div>
+
+                <div class="bg-slate-50 p-4 rounded-2xl max-w-3xl mx-auto border border-slate-100 shadow-sm">
+                    <p class="text-slate-600 leading-relaxed text-lg">
+                        We will be shooting in <span class="font-semibold text-slate-800">Vancouver, Canada</span>. 
+                        Select investors will be welcome to join us as our special guests on set and enjoy a personal conversation with our star, 
+                        <span class="font-semibold text-slate-800">Dominic Lippa</span>, star of the popular 2022 indie feature film 
+                        <span class="italic whitespace-nowrap">Before I Change My Mind.</span>
+                    </p>
+                    <p class="mt-3 font-bold highlight-text text-lg">Thank you very much.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Media Lightbox Modal (Hidden by default) -->
+    <div id="media-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/95 backdrop-blur-md transition-all duration-300 hidden opacity-0" onclick="closeModal(event)">
+        <div class="relative w-full max-w-5xl mx-4 p-2" onclick="event.stopPropagation()">
+            <!-- Close Button -->
+            <button onclick="closeModal()" class="absolute -top-8 right-0 text-slate-400 hover:text-white transition-colors group">
+                <span class="text-sm uppercase tracking-widest mr-2 group-hover:text-white">Close</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+
+            <!-- Video Content -->
+            <!-- Removed 'relative' class and the masking div -->
+            <div id="video-container" class="hidden aspect-video w-full bg-black rounded-xl overflow-hidden shadow-2xl border border-slate-800">
+                <iframe id="youtube-frame" class="w-full h-full" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+
+            <!-- Video Disclaimer (for concept trailer) -->
+            <div id="video-disclaimer" class="hidden mt-4 text-center fade-in">
+                <p class="text-white/60 text-sm font-light italic tracking-wide max-w-2xl mx-auto">
+                    Note: This concept trailer utilizes AI for pre-visualization purposes. <br class="hidden md:block">
+                    The final feature film will be shot using traditional live-action techniques.
+                </p>
+            </div>
+
+            <!-- Image Gallery Content (for pitch deck/storyboards) -->
+            <div id="image-container" class="hidden flex flex-col items-center w-full h-full justify-center">
+                <div class="relative flex flex-col items-center w-full max-w-6xl">
+                    <!-- Image and Loading Spinner -->
+                    <div id="gallery-loader" class="absolute inset-0 flex items-center justify-center z-10 hidden">
+                        <div class="loader"></div>
+                    </div>
+
+                    <!-- Modified: Reduced max-height on mobile to [60vh] to make room for buttons below. Desktop remains [80vh]. -->
+                    <img id="gallery-image" src="" alt="Gallery Content" class="max-h-[60vh] md:max-h-[80vh] w-auto object-contain rounded-lg shadow-2xl border border-slate-800 transition-opacity duration-300">
+                    
+                    <!-- Navigation Buttons Container -->
+                    <!-- Mobile: Flex row BELOW image (static positioning) -->
+                    <!-- Desktop: Absolute overlay CENTERED on image (pointer-events-none allows clicking through empty space) -->
+                    <div class="w-full flex justify-between items-center px-8 mt-6 md:mt-0 md:absolute md:top-1/2 md:left-0 md:w-full md:-translate-y-1/2 md:px-4 md:pointer-events-none z-20">
+                        
+                        <!-- Prev Button -->
+                        <button onclick="prevImage()" class="md:pointer-events-auto bg-slate-800 hover:bg-yellow-600 md:bg-black/50 md:hover:bg-black/80 text-white p-4 md:p-2 rounded-full transition-all backdrop-blur-sm shadow-lg border border-slate-700 md:border-transparent">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                            </svg>
+                        </button>
+
+                        <!-- Next Button -->
+                        <button onclick="nextImage()" class="md:pointer-events-auto bg-slate-800 hover:bg-yellow-600 md:bg-black/50 md:hover:bg-black/80 text-white p-4 md:p-2 rounded-full transition-all backdrop-blur-sm shadow-lg border border-slate-700 md:border-transparent">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="mt-4 flex items-center space-x-2">
+                    <span id="image-counter" class="text-slate-400 font-mono text-sm tracking-wider"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // --- Password Logic ---
+        function checkPassword(event) {
+            event.preventDefault();
+            const input = document.getElementById('password-input');
+            const errorMessage = document.getElementById('error-message');
+            const loginCard = document.getElementById('login-card');
+            const protectedContent = document.getElementById('protected-content');
+            
+            // Hardcoded password for access (as provided in original code)
+            if (input.value === "carousel") {
+                loginCard.style.display = 'none';
+                protectedContent.classList.remove('hidden');
+                // Adjust body layout for full page content
+                document.body.style.alignItems = 'start';
+                document.body.classList.add('pt-10', 'md:pt-16', 'pb-16'); // Added responsive padding
+                
+                // OPTIMIZATION: Start background preloading as soon as user logs in
+                prefetchContent();
+            } else {
+                errorMessage.classList.remove('hidden');
+                input.classList.add('border-red-500');
+                input.value = '';
+                // Remove error styling after a delay
+                setTimeout(() => {
+                    input.classList.remove('border-red-500');
+                    errorMessage.classList.add('hidden');
+                }, 2000);
+            }
+        }
+
+        function logout() {
+            // Simple way to reset the page and go back to the login screen
+            location.reload();
+        }
+
+        // --- Lightbox & Gallery Logic ---
+        const modal = document.getElementById('media-modal');
+        const videoContainer = document.getElementById('video-container');
+        const videoDisclaimer = document.getElementById('video-disclaimer');
+        const imageContainer = document.getElementById('image-container');
+        const youtubeFrame = document.getElementById('youtube-frame');
+        const galleryImage = document.getElementById('gallery-image');
+        const imageCounter = document.getElementById('image-counter');
+        const galleryLoader = document.getElementById('gallery-loader');
+
+        // --- DATA DEFINITIONS ---
+        // Storyboard images hosted on GitHub (Updated all to use /pitch/ path)
+        const storyboardLinks = [
+            "https://github.com/benhasglasses/yalen/blob/main/pitch/FTFE_00.webp?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/pitch/FTFE_01.webp?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/pitch/FTFE_02.webp?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/pitch/FTFE_03.webp?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/pitch/FTFE_04.webp?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/pitch/FTFE_05.webp?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/pitch/FTFE_06.webp?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/pitch/FTFE_07.webp?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/pitch/FTFE_08.webp?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/pitch/FTFE_09.webp?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/pitch/FTFE_10.webp?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/pitch/FTFE_11.webp?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/pitch/FTFE_12.webp?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/pitch/FTFE_13.webp?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/pitch/FTFE_14.webp?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/pitch/FTFE_15.webp?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/pitch/FTFE_16.webp?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/pitch/FTFE_17.webp?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/pitch/FTFE_18.webp?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/pitch/FTFE_19.webp?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/pitch/FTFE_20.webp?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/pitch/FTFE_21.webp?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/pitch/FTFE_22.webp?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/pitch/FTFE_23.webp?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/pitch/FTFE_24.webp?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/pitch/FTFE_25.webp?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/pitch/FTFE_26.webp?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/pitch/FTFE_27.webp?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/pitch/FTFE_28.webp?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/pitch/FTFE_29.webp?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/pitch/FTFE_30.webp?raw=true",
+            "https://github.com/benhasglasses/yalen/blob/main/pitch/FTFE_31.webp?raw=true" 
+        ];
+
+        // Generate Pitch Links (21 slides: 00 through 20)
+        const pitchDeckBaseUrl = "https://github.com/benhasglasses/yalen/blob/main/pitch/FirstTimePitchDeck_";
+        const pitchLinks = [];
+        for (let i = 0; i <= 20; i++) { // CHANGED FROM 1 to 19 to 0 to 20
+            const num = i.toString().padStart(2, '0');
+            pitchLinks.push(`${pitchDeckBaseUrl}${num}.webp?raw=true`);
+        }
+
+        // State variables for gallery
+        let galleryImages = [];
+        let currentImageIndex = 0;
+        let galleryTypeLabel = "";
+
+        // --- OPTIMIZATION: Background Prefetch ---
+        function prefetchContent() {
+            // Helper to load image
+            const loadImg = (url) => {
+                const img = new Image();
+                img.src = url;
+            };
+
+            // Load first 3 images of Pitch Deck and Storyboards
+            pitchLinks.slice(0, 3).forEach(url => loadImg(url));
+            storyboardLinks.slice(0, 3).forEach(url => loadImg(url));
+        }
+
+        /**
+         * Opens the modal and displays a YouTube video.
+         * @param {string} videoId The YouTube video ID.
+         */
+        function openVideo(videoId) {
+            modal.classList.remove('hidden');
+            // Timeout for CSS transition effect
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+            }, 10);
+            
+            videoContainer.classList.remove('hidden');
+            imageContainer.classList.add('hidden');
+            
+            // LOGIC: Show disclaimer ONLY for the new Video Trailer ID
+            if (videoId === 'PjgF1cMhyrQ') {
+                videoDisclaimer.classList.remove('hidden');
+            } else {
+                videoDisclaimer.classList.add('hidden');
+            }
+            
+            // Embed YouTube video with the most minimal configuration possible:
+            // modestbranding=1 attempts to hide the YouTube logo in the control bar.
+            // rel=0 prevents related videos from showing at the end.
+            // disablekb=1 prevents keyboard control interference.
+            youtubeFrame.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&disablekb=1`;
+            document.body.classList.add('lightbox-open');
+        }
+
+        /**
+         * Opens the modal and displays the image gallery based on type.
+         * @param {('pitch'|'storyboard')} type The type of gallery to open.
+         */
+        function openGallery(type) {
+            currentImageIndex = 0;
+
+            if (type === 'pitch') {
+                galleryTypeLabel = "PITCH DECK";
+                galleryImages = [...pitchLinks];
+            } else if (type === 'storyboard') {
+                galleryTypeLabel = "CONCEPT ART";
+                galleryImages = [...storyboardLinks];
+            }
+
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+            }, 10);
+
+            videoContainer.classList.add('hidden');
+            videoDisclaimer.classList.add('hidden');
+            imageContainer.classList.remove('hidden');
+            
+            updateGalleryImage();
+            document.body.classList.add('lightbox-open');
+        }
+
+        /**
+         * Updates the image source and counter text in the gallery.
+         */
+        function updateGalleryImage() {
+            if (galleryImages.length === 0) return;
+
+            // Show loader and dim image during loading
+            galleryLoader.classList.remove('hidden');
+            galleryImage.classList.add('opacity-50');
+            
+            // Handle image load success
+            galleryImage.onload = () => {
+                galleryLoader.classList.add('hidden');
+                galleryImage.classList.remove('opacity-50');
+            };
+            
+            // Handle image load error
+            galleryImage.onerror = () => {
+                galleryLoader.classList.add('hidden');
+                galleryImage.classList.remove('opacity-50');
+                // Optional: show a fallback/broken image indicator
+            };
+
+            // Set new image source
+            galleryImage.src = galleryImages[currentImageIndex];
+            imageCounter.textContent = `${currentImageIndex + 1} / ${galleryImages.length} • ${galleryTypeLabel}`;
+            
+            // PRELOADER: Aggressively fetch next 2 images
+            for (let i = 1; i <= 2; i++) {
+                const nextIndex = (currentImageIndex + i) % galleryImages.length;
+                const preloadImg = new Image();
+                preloadImg.src = galleryImages[nextIndex];
+            }
+        }
+
+        /**
+         * Navigates to the next image in the gallery.
+         */
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+            updateGalleryImage();
+        }
+
+        /**
+         * Navigates to the previous image in the gallery.
+         */
+        function prevImage() {
+            currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+            updateGalleryImage();
+        }
+
+        /**
+         * Closes the modal.
+         */
+        function closeModal(event) {
+            // Check if the click was directly on the modal background to avoid closing when clicking inside
+            if (event && event.target !== modal) return;
+
+            modal.classList.add('opacity-0');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                // Stop video playback by clearing the iframe source
+                youtubeFrame.src = "";
+                // Reset states
+                videoDisclaimer.classList.add('hidden');
+                galleryImage.src = "";
+                document.body.classList.remove('lightbox-open');
+            }, 300);
+        }
+        
+        // --- Keyboard Navigation for Lightbox ---
+        document.addEventListener('keydown', function(event) {
+            // Only respond to key events if the modal is open
+            if (modal.classList.contains('hidden')) return;
+            
+            if (event.key === "Escape") {
+                closeModal();
+            }
+            // Arrow key navigation only works when the image gallery is active
+            if (!imageContainer.classList.contains('hidden')) {
+                if (event.key === "ArrowRight") nextImage();
+                if (event.key === "ArrowLeft") prevImage();
+            }
+        });
+    </script>
+</body>
+</html>
