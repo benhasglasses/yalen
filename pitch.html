@@ -272,27 +272,37 @@
             </div>
 
             <!-- Image Gallery Content (for pitch deck/storyboards) -->
-            <div id="image-container" class="hidden flex flex-col items-center">
-                <div class="relative">
+            <div id="image-container" class="hidden flex flex-col items-center w-full h-full justify-center">
+                <div class="relative flex flex-col items-center w-full max-w-6xl">
                     <!-- Image and Loading Spinner -->
                     <div id="gallery-loader" class="absolute inset-0 flex items-center justify-center z-10 hidden">
                         <div class="loader"></div>
                     </div>
 
-                    <img id="gallery-image" src="" alt="Gallery Content" class="max-h-[80vh] w-auto object-contain rounded-lg shadow-2xl border border-slate-800 transition-opacity duration-300">
+                    <!-- Modified: Reduced max-height on mobile to [60vh] to make room for buttons below. Desktop remains [80vh]. -->
+                    <img id="gallery-image" src="" alt="Gallery Content" class="max-h-[60vh] md:max-h-[80vh] w-auto object-contain rounded-lg shadow-2xl border border-slate-800 transition-opacity duration-300">
                     
-                    <!-- Navigation Buttons (Prev/Next) -->
-                    <button onclick="prevImage()" class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/80 text-white p-2 rounded-full transition-colors backdrop-blur-sm z-20">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                        </svg>
-                    </button>
-                    <button onclick="nextImage()" class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/80 text-white p-2 rounded-full transition-colors backdrop-blur-sm z-20">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                        </svg>
-                    </button>
+                    <!-- Navigation Buttons Container -->
+                    <!-- Mobile: Flex row BELOW image (static positioning) -->
+                    <!-- Desktop: Absolute overlay CENTERED on image (pointer-events-none allows clicking through empty space) -->
+                    <div class="w-full flex justify-between items-center px-8 mt-6 md:mt-0 md:absolute md:top-1/2 md:left-0 md:w-full md:-translate-y-1/2 md:px-4 md:pointer-events-none z-20">
+                        
+                        <!-- Prev Button -->
+                        <button onclick="prevImage()" class="md:pointer-events-auto bg-slate-800 hover:bg-yellow-600 md:bg-black/50 md:hover:bg-black/80 text-white p-4 md:p-2 rounded-full transition-all backdrop-blur-sm shadow-lg border border-slate-700 md:border-transparent">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                            </svg>
+                        </button>
+
+                        <!-- Next Button -->
+                        <button onclick="nextImage()" class="md:pointer-events-auto bg-slate-800 hover:bg-yellow-600 md:bg-black/50 md:hover:bg-black/80 text-white p-4 md:p-2 rounded-full transition-all backdrop-blur-sm shadow-lg border border-slate-700 md:border-transparent">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </button>
+                    </div>
                 </div>
+                
                 <div class="mt-4 flex items-center space-x-2">
                     <span id="image-counter" class="text-slate-400 font-mono text-sm tracking-wider"></span>
                 </div>
